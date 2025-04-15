@@ -1,0 +1,4 @@
+<launch>
+  <param name="robot_vel_com" value="9002"/>
+  <node pkg="multi_master" name="robot2_vel_server" type="cmd_vel_server.py"/>
+</launch>

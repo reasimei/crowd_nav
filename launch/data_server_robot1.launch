@@ -1,0 +1,15 @@
+<launch>
+  <param name="odom_com" value="8003"/>
+  <param name="tf_com" value="8004"/>
+  <param name="scan_com" value="8010"/>
+  <param name="scantopic_name" value="/robot_1/scan"/>
+  <param name="odomtopic_name" value="/robot_1/odom"/>
+  <param name="maptopic_name" value="/map"/>
+  <param name="mapupdatetopic_name" value="/tb3_1/map_updates"/>
+  <param name="baselink_name" value="/robot_1/base_link"/>
+  <param name="laserlink_name" value="/robot_1/base_link"/>
+  <!--node pkg="tf" type="static_transform_publisher" name="robot1_laser_to_base" args="0 0 0.09 0 0 0 1 /robot_1/base_link /robot_1/laser_link 100"/-->
+  <node pkg="multi_master" name="odom_server_robot1" type="odom_server.py" output="screen"/>
+  <node pkg="multi_master" name="scan_server_robot1" type="scan_server.py" output="screen"/>  
+  <node pkg="multi_master" name="tf_server_robot1" type="tf_server_robot1.py" output="screen"/>
+</launch> 

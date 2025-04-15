@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="multi_master" name="map_server_robot0" type="map_server_robot0.py" output="screen"/>
+  <node pkg="multi_master" name="map_server_robot1" type="map_server_robot1.py" output="screen"/>
+  <node pkg="multi_master" name="map_server_robot2" type="map_server_robot2.py" output="screen"/>
+  <node pkg="multi_master" name="map_server_robot2" type="map_server_robot3.py" output="screen"/>
+</launch>

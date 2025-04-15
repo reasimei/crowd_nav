@@ -25,6 +25,10 @@ class Agent(object):
         self.gy = None
         self.vx = None
         self.vy = None
+        # self.vx1 = None
+        # self.vx2 = None
+        # self.vy1 = None
+        # self.vy2 = None
         self.theta = None
         self.time_step = None
 
@@ -45,12 +49,18 @@ class Agent(object):
         self.radius = np.random.uniform(0.3, 0.5)
 
     def set(self, px, py, gx, gy, vx, vy, theta, radius=None, v_pref=None):
+        # self.px1 = px1
+        # self.py1 = py1
+        # self.px2 = px2
+        # self.py2 = py2
         self.px = px
         self.py = py
         self.gx = gx
         self.gy = gy
         self.vx = vx
         self.vy = vy
+        # self.theta1 = theta1
+        # self.theta2 = theta2
         self.theta = theta
         if radius is not None:
             self.radius = radius
@@ -135,5 +145,57 @@ class Agent(object):
             self.vy = action.v * np.sin(self.theta)
 
     def reached_destination(self):
-        return norm(np.array(self.get_position()) - np.array(self.get_goal_position())) < self.radius
+        """
+        Check if the agent has reached its destination.
+        Adjusts the threshold based on the movement direction to provide
+        more consistent behavior for robots moving in different directions.
+        """
+        # 计算到目标的距离
+        position = np.array(self.get_position())
+        goal = np.array(self.get_goal_position())
+        distance = norm(position - goal)
+        
+        # 根据主要移动方向和机器人ID调整阈值
+        robot_id = getattr(self, 'robot_index', 0)  # Get robot index if available
+        
+        # 计算初始位置到目标的方向向量
+        start_to_goal = goal - position
+        
+        # 根据主要移动方向和机器人位置调整阈值
+        if abs(start_to_goal[0]) > abs(start_to_goal[1]):
+            # 主要水平移动（左右）
+            if start_to_goal[0] > 0:  # 左到右
+                # 左到右移动可能过头，使用更严格的条件
+                threshold = self.radius * 1.2
+                if robot_id % 4 == 0 or robot_id % 4 == 1:  # 底部机器人
+                    threshold = self.radius * 1.3
+            else:  # 右到左
+                # 右到左移动可能不足，使用宽松一点的条件
+                threshold = self.radius * 2.0
+                if robot_id % 4 == 2 or robot_id % 4 == 3:  # 右侧机器人
+                    threshold = self.radius * 2.2
+        else:
+            # 主要垂直移动（上下）
+            if start_to_goal[1] > 0:  # 下到上
+                # 下到上移动可能不足，使用宽松一点的条件
+                threshold = self.radius * 2.0
+                if robot_id % 4 == 0 or robot_id % 4 == 1:  # 底部机器人
+                    threshold = self.radius * 2.2
+            else:  # 上到下
+                # 上到下移动可能过头，使用更严格的条件
+                threshold = self.radius * 1.2
+                if robot_id % 4 == 4 or robot_id % 4 == 5:  # 顶部机器人
+                    threshold = self.radius * 1.3
+        
+        # 确保最小阈值不低于半径的80%
+        threshold = max(threshold, self.radius * 0.8)
+
+        # 记录详细的到达判断信息
+        import logging
+        logging.debug(f"Agent reached_destination check: pos={position}, goal={goal}, " + 
+                     f"distance={distance:.2f}, threshold={threshold:.2f}, " +
+                     f"reached={distance < threshold}")
+        
+        # 当机器人非常接近目标时，视为已到达
+        return distance < threshold 
 

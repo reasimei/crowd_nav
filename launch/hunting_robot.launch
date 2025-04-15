@@ -1,0 +1,6 @@
+<launch>
+  <param name="robot_goal_com" value="9002"/>
+  <param name="delta_robot_init_pose_x" value="0.00"/>
+  <param name="delta_robot_init_pose_y" value="0.60"/>
+  <node pkg="multi_master" name="robot1_hunt_goal_server" type="hunting_server_robot0.py"/>
+</launch>

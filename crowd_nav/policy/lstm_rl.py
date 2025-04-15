@@ -87,7 +87,7 @@ class LstmRL(MultiHumanRL):
         logging.info('Policy: {}LSTM-RL {} pairwise interaction module'.format(
             'OM-' if self.with_om else '', 'w/' if with_interaction_module else 'w/o'))
 
-    def predict(self, state):
+    def predict(self, state,robot_id):
         """
         Input state is the joint state of robot concatenated with the observable state of other agents
 

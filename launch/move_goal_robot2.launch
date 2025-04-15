@@ -1,0 +1,6 @@
+<launch>
+  <param name="robot_goal_com" value="9002"/>
+  <param name="delta_robot_init_pose_x" value="0.00"/>
+  <param name="delta_robot_init_pose_y" value="1.20"/>
+  <node pkg="multi_master" name="robot2_move_goal_server" type="move_goal_server_robot.py"/>
+</launch>

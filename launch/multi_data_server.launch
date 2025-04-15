@@ -1,0 +1,11 @@
+<launch>
+  <include file="$(find multi_master)/launch/data_server_robot0.launch">
+  </include>
+  <include file="$(find multi_master)/launch/data_server_robot1.launch">
+  </include>
+   <include file="$(find multi_master)/launch/data_server_robot2.launch">
+  </include>
+    <include file="$(find multi_master)/launch/data_server_robot3.launch">
+  </include>
+  
+</launch>

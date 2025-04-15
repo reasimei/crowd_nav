@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<launch xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- Arguments -->
+    <xacro:arg name="robot_num" default="2"/>
+    
+    <!-- Parameters -->
+    <param name="robot_num" value="$(arg robot_num)"/>
+    <param name="robot_vel_com" value="8000" />
+    <param name="map_com" value="9000" />
+    <param name="tf_com" value="10000" />
+    <param name="odom_com" value="11000" />
+    <param name="pose_com" value="12000" />
+    <param name="scantopic_name" value="/robot_scan" />
+    <param name="laserlink_name" value="base_laser" />
+    <param name="maptopic_name" value="/robot_map" />
+    <param name="odomtopic_name" value="/robot_odom" />
+    <param name="baselink_name" value="base_link" />
+    
+    <!-- Upper computer node -->
+    <node name="upper_computer_node" pkg="crowd_nav" type="test_2_2robots_hose4_deploy.py" output="screen">
+        <param name="policy" value="sarl"/>
+        <param name="model_dir" value="$(find crowd_nav)/data/output"/>
+        <param name="phase" value="test"/>
+        <param name="test_case" value="0"/>
+        <param name="visualize" value="true"/>
+        <param name="traj" value="true"/>
+    </node>
+
+    <!-- Robot and detector node macro -->
+    <xacro:macro name="robot_and_detector" params="robot_id">
+        <!-- Robot node -->
+        <node name="robot$(arg robot_id)cmd_vel_node" 
+              pkg="crowd_nav" 
+              type="robot.py" 
+              args="$(arg robot_id)" 
+              output="screen">
+            <param name="robot_id" value="$(arg robot_id)"/>
+        </node>
+
+        <!-- Pedestrian detector node -->
+        <node name="pedestrian_detector_robot_$(arg robot_id)" 
+              pkg="crowd_nav" 
+              type="publish_pedestrian_positions.py" 
+              args="$(arg robot_id)" 
+              output="screen">
+            <param name="robot_id" value="$(arg robot_id)"/>
+        </node>
+    </xacro:macro>
+
+    <!-- Generate nodes for each robot -->
+    <xacro:property name="robot_num" value="$(arg robot_num)"/>
+    <xacro:property name="range" value="${range(0, robot_num)}"/>
+    
+    <group ns="robots">
+        <xacro:for-each var="i" in="${range}">
+            <xacro:robot_and_detector robot_id="${i}"/>
+        </xacro:for-each>
+    </group>
+</launch>

@@ -1,0 +1,51 @@
+2025-03-17 15:10:29, INFO: Current git head hash code: %s
+2025-03-17 15:10:29, INFO: Using device: cuda:0
+2025-03-17 15:10:29, INFO: Policy: LLM-SARL w/ global state
+2025-03-17 15:10:29, INFO: LLM client initialized with DeepSeek API
+2025-03-17 15:10:29, INFO: LLM decision maker initialized
+2025-03-17 15:10:29, INFO: Policy: LLM-SARL w/ global state
+2025-03-17 15:10:29, INFO: robot number: 8
+2025-03-17 15:10:29, INFO: human number: 5
+2025-03-17 15:10:29, INFO: Not randomize human's radius and preferred speed
+2025-03-17 15:10:29, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-17 15:10:29, INFO: Square width: 10.0, circle width: 4.0
+2025-03-17 15:10:29, INFO: Current learning rate: 0.010000
+2025-03-17 15:18:17, INFO: TRAIN has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-17 15:19:33, INFO: Finish imitation learning. Weights saved.
+2025-03-17 15:19:33, INFO: Experience set size: 100000/100000
+2025-03-17 15:19:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-17 15:19:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-17 15:19:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-17 15:19:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-17 15:19:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-17 15:19:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-17 15:19:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-17 15:19:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-17 15:19:33, INFO: Current learning rate: 0.001000
+2025-03-17 15:19:33, INFO: Attempting LLM API call...
+2025-03-17 15:20:49, INFO: LLM response received: ```json
+{
+    "risk_assessment": 4,
+    "recommended_action": {
+        "vx": 0.5,
+        "vy": 0.8...
+2025-03-17 15:20:49, INFO: Tokens used: 3860, Total: 3860
+2025-03-17 15:20:49, INFO: LLM advice: {'risk_assessment': 4, 'recommended_action': {'vx': 0.5, 'vy': 0.866}, 'reasoning': 'The direct path to the goal is blocked by stationary robot 3. A detour to the right (positive x-direction) is initiated with a velocity vector angled 30° from the vertical. This balances upward progress with lateral movement to avoid collision at the goal. Current velocities of all agents are zero, and nearest human/robot distances (1.21m and 2.0m) are safe. The chosen path avoids conflicts with horizontally moving robots on the left and minimizes interference with other agents.'}
+2025-03-17 15:20:49, INFO: LLM suggested velocity: vx=0.50, vy=0.87
+2025-03-17 15:20:49, INFO: Attempting LLM API call...
+2025-03-17 15:21:53, INFO: LLM response received: ```json
+{
+    "risk_assessment": 4,
+    "recommended_action": {
+        "vx": 0.5,
+        "vy": 0.8...
+2025-03-17 15:21:53, INFO: Tokens used: 3594, Total: 7454
+2025-03-17 15:21:53, INFO: LLM advice: {'risk_assessment': 4, 'recommended_action': {'vx': 0.5, 'vy': 0.866}, 'reasoning': "Robot 0's direct path to (1.0, 4.0) is blocked by stationary Robot 4 at the goal. To avoid future collision risks when both start moving (Robot 4's goal is diametrically opposite), a detour is initiated. The recommended velocity (0.5, 0.866) creates a 30-degree rightward deviation while maintaining preferred speed (1.0 m/s). This balances progress toward the goal with lateral separation from Robot 4's expected southbound path. All other agents are stationary and pose no immediate collision risk (nearest human 3.2m away, nearest robot 2.0m away)."}
+2025-03-17 15:21:53, INFO: LLM suggested velocity: vx=0.50, vy=0.87
+2025-03-17 15:21:53, INFO: Attempting LLM API call...
+2025-03-17 15:23:32, INFO: LLM response received: ...
+2025-03-17 15:23:32, INFO: Tokens used: 5413, Total: 12867
+2025-03-17 15:23:32, WARNING: Empty content received
+2025-03-17 15:23:32, INFO: LLM advice: {'risk_assessment': 5, 'recommended_action': {'vx': 0.0, 'vy': 0.0}, 'reasoning': 'Default safe decision due to LLM error'}
+2025-03-17 15:23:32, INFO: LLM suggested velocity: vx=0.00, vy=0.00
+2025-03-17 15:23:32, INFO: Attempting LLM API call...

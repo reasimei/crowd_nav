@@ -1,0 +1,18 @@
+2024-12-20 00:08:04, INFO: Current git head hash code: %s
+2024-12-20 00:08:05, INFO: Using device: cuda:0
+2024-12-20 00:08:05, INFO: Policy: SARL w/ global state
+2024-12-20 00:08:06, INFO: robot number: 8
+2024-12-20 00:08:06, INFO: human number: 5
+2024-12-20 00:08:06, INFO: Not randomize human's radius and preferred speed
+2024-12-20 00:08:06, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2024-12-20 00:08:06, INFO: Square width: 10.0, circle width: 4.0
+2024-12-20 00:08:06, INFO: Load imitation learning trained weights.
+2024-12-20 00:08:06, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-12-20 00:08:06, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-12-20 00:08:06, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-12-20 00:08:06, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-12-20 00:08:06, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-12-20 00:08:06, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-12-20 00:08:06, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-12-20 00:08:06, INFO: Agent is invisible and has holonomic kinematic constraint
+2024-12-20 00:08:06, INFO: Current learning rate: 0.001000

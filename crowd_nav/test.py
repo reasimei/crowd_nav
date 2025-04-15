@@ -5,6 +5,9 @@ import os
 import torch
 import numpy as np
 import gym
+import matplotlib.pyplot as plt
+import imageio
+from gym.wrappers.monitoring.video_recorder import VideoRecorder
 from crowd_nav.utils.explorer import Explorer
 from crowd_nav.policy.policy_factory import policy_factory
 from crowd_sim.envs.utils.robot import Robot
@@ -83,7 +86,12 @@ def main():
             # adding some safety space improves ORCA performance. Tune this value based on your need.
             robot.policy.safety_space = 0
         logging.info('ORCA agent buffer: %f', robot.policy.safety_space)
+    
+    #env.start_video_recorder()
+    before_training = "before_training.mp4"
+    video = VideoRecorder(env, before_training)
 
+    
     policy.set_env(env)
     robot.print_info()
     if args.visualize:
@@ -98,15 +106,28 @@ def main():
             last_pos = current_pos
         if args.traj:
             env.render('traj', args.video_file)
+            #plt.show(aaa)
+            #imageio.mimsave('./test_1_1.gif',aaa, duration=0.1)
+            #aaa.save("./test_1_1.gif")
         else:
             env.render('video', args.video_file)
-
+            #plt.savefig("./test_1_2.png")
+            #anim.save("./test_1_2.gif")
+            #imageio.mimsave('./test_1_2.gif', env, duration=0.1)
+            #plt.show(bbb)
+            #bbb.save("./test_1_2.gif")
+    
         logging.info('It takes %.2f seconds to finish. Final status is %s', env.global_time, info)
         if robot.visible and info == 'reach goal':
             human_times = env.get_human_times()
             logging.info('Average time for humans to reach goal: %.2f', sum(human_times) / len(human_times))
     else:
         explorer.run_k_episodes(env.case_size[args.phase], args.phase, print_failure=True)
+    
+    #env.close_video_recorder()
+    #env.close()
+    video.close()
+    env.close()
 
 
 if __name__ == '__main__':

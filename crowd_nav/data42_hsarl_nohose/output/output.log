@@ -1,0 +1,989 @@
+2025-03-09 23:12:05, INFO: Current git head hash code: %s
+2025-03-09 23:12:05, INFO: Using device: cuda:0
+2025-03-09 23:12:05, INFO: robot number: 8
+2025-03-09 23:12:05, INFO: human number: 5
+2025-03-09 23:12:05, INFO: Not randomize human's radius and preferred speed
+2025-03-09 23:12:05, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-09 23:12:05, INFO: Square width: 10.0, circle width: 4.0
+2025-03-09 23:12:05, INFO: Current learning rate: 0.010000
+2025-03-09 23:18:45, INFO: TRAIN has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0044
+2025-03-09 23:20:50, INFO: Finish imitation learning. Weights saved.
+2025-03-09 23:20:50, INFO: Experience set size: 100000/100000
+2025-03-09 23:20:50, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 23:20:50, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 23:20:50, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 23:20:50, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 23:20:50, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 23:20:50, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 23:20:50, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 23:20:50, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 23:20:50, INFO: Current learning rate: 0.001000
+2025-03-09 23:20:50, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:50, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:50, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:50, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:50, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:51, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:51, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:51, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:51, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:51, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:51, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:52, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:52, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:52, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:52, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:52, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:52, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:53, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:53, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:53, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:53, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:53, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:53, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:54, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:54, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:54, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:54, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:54, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:54, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:55, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:55, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:55, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:55, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:55, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:55, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:56, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:56, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:56, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-09 23:20:56, ERROR: Error in robot action selection: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:47, INFO: Current git head hash code: %s
+2025-03-10 12:59:47, INFO: Using device: cuda:0
+2025-03-10 12:59:47, INFO: robot number: 8
+2025-03-10 12:59:47, INFO: human number: 5
+2025-03-10 12:59:47, INFO: Not randomize human's radius and preferred speed
+2025-03-10 12:59:47, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-10 12:59:47, INFO: Square width: 10.0, circle width: 4.0
+2025-03-10 12:59:47, INFO: Load imitation learning trained weights. Start RL training
+2025-03-10 12:59:47, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 12:59:47, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 12:59:47, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 12:59:47, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 12:59:47, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 12:59:47, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 12:59:47, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 12:59:47, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 12:59:47, INFO: Current learning rate: 0.001000
+2025-03-10 12:59:48, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:48, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:48, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:48, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:48, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:48, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:48, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:48, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:48, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:48, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:48, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:48, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:49, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:49, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:49, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:49, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:49, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:49, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:49, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:49, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:49, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:49, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:49, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:49, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:50, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:50, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:50, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:50, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:50, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:50, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:50, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:50, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:50, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:50, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:50, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:50, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:50, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:50, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:51, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:51, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:51, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:51, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:51, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:51, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:51, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:51, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:51, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:51, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:51, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:51, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:52, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:52, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:52, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:52, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:52, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:52, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:53, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:53, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:53, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:53, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:53, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:53, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:53, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:53, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:53, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:53, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:53, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:53, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:53, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:53, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:54, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:54, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:54, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:54, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:54, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:54, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:54, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:54, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:54, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:54, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:54, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:54, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:55, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:55, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:55, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:55, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:55, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:55, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:55, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:55, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:55, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:55, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:55, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:55, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:55, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:55, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:56, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:56, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 12:59:56, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 12:59:56, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:05, INFO: Current git head hash code: %s
+2025-03-10 13:06:05, INFO: Using device: cuda:0
+2025-03-10 13:06:05, INFO: robot number: 8
+2025-03-10 13:06:05, INFO: human number: 5
+2025-03-10 13:06:05, INFO: Not randomize human's radius and preferred speed
+2025-03-10 13:06:05, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-10 13:06:05, INFO: Square width: 10.0, circle width: 4.0
+2025-03-10 13:06:05, INFO: Load imitation learning trained weights. Start RL training
+2025-03-10 13:06:05, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:06:05, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:06:05, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:06:05, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:06:05, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:06:05, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:06:05, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:06:05, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:06:05, INFO: Current learning rate: 0.001000
+2025-03-10 13:06:06, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:06, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:06, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:06, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:06, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:06, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:06, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:06, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:06, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:06, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:07, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:07, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:07, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:07, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:07, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:07, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:07, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:07, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:07, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:07, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:07, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:07, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:08, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:08, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:06:08, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:06:08, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:51, INFO: Current git head hash code: %s
+2025-03-10 13:12:51, INFO: Using device: cuda:0
+2025-03-10 13:12:51, INFO: robot number: 8
+2025-03-10 13:12:51, INFO: human number: 5
+2025-03-10 13:12:51, INFO: Not randomize human's radius and preferred speed
+2025-03-10 13:12:51, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-10 13:12:51, INFO: Square width: 10.0, circle width: 4.0
+2025-03-10 13:12:51, INFO: Load imitation learning trained weights. Start RL training
+2025-03-10 13:12:51, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:12:51, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:12:51, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:12:51, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:12:51, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:12:51, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:12:51, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:12:51, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:12:51, INFO: Current learning rate: 0.001000
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:12:52, ERROR: Error in act_avoid_humans: Sizes of tensors must match except in dimension 0. Expected size 14 but got size 18 for tensor number 5 in the list.
+2025-03-10 13:12:52, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:08, INFO: Current git head hash code: %s
+2025-03-10 13:16:08, INFO: Using device: cuda:0
+2025-03-10 13:16:08, INFO: robot number: 8
+2025-03-10 13:16:08, INFO: human number: 5
+2025-03-10 13:16:08, INFO: Not randomize human's radius and preferred speed
+2025-03-10 13:16:08, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-10 13:16:08, INFO: Square width: 10.0, circle width: 4.0
+2025-03-10 13:16:08, INFO: Load imitation learning trained weights. Start RL training
+2025-03-10 13:16:08, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:16:08, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:16:08, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:16:08, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:16:08, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:16:08, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:16:08, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:16:08, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:16:08, INFO: Current learning rate: 0.001000
+2025-03-10 13:16:09, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:09, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:09, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:09, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:09, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:09, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:09, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:09, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:09, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:09, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:09, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:09, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:10, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:10, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:10, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:10, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:10, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:10, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:10, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:10, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:10, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:10, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:10, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:10, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:10, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:10, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:11, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:11, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:16:11, ERROR: Error in act_avoid_humans: 'HierarchicalSARL' object has no attribute 'v_pref'
+2025-03-10 13:16:11, ERROR: Error in robot action selection: local variable 'action' referenced before assignment
+2025-03-10 13:22:52, INFO: Current git head hash code: %s
+2025-03-10 13:22:52, INFO: Using device: cuda:0
+2025-03-10 13:22:52, INFO: robot number: 8
+2025-03-10 13:22:52, INFO: human number: 5
+2025-03-10 13:22:52, INFO: Not randomize human's radius and preferred speed
+2025-03-10 13:22:52, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-10 13:22:52, INFO: Square width: 10.0, circle width: 4.0
+2025-03-10 13:22:52, INFO: Load imitation learning trained weights. Start RL training
+2025-03-10 13:22:52, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:22:52, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:22:52, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:22:52, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:22:52, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:22:52, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:22:52, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:22:52, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-10 13:22:52, INFO: Current learning rate: 0.001000
+2025-03-10 14:05:24, INFO: TRAIN in episode 0 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:05:24, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:05:24, INFO: Experience set size: 15688/100000
+2025-03-10 14:48:41, INFO: VAL   in episode 0 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:48:41, INFO: Frequency of being in danger: 0.00 and average min separate distance in danger: 0.00
+2025-03-10 14:49:20, INFO: TRAIN in episode 0 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:49:20, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:49:44, INFO: TRAIN in episode 1 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:49:44, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:50:12, INFO: TRAIN in episode 2 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:50:12, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:50:41, INFO: TRAIN in episode 3 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:50:41, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:51:08, INFO: TRAIN in episode 4 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:51:08, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:51:34, INFO: TRAIN in episode 5 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:51:34, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:52:02, INFO: TRAIN in episode 6 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:52:02, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:52:26, INFO: TRAIN in episode 7 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:52:26, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:53:06, INFO: TRAIN in episode 8 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:53:06, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:53:36, INFO: TRAIN in episode 9 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:53:36, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:54:04, INFO: TRAIN in episode 10 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:54:04, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:54:27, INFO: TRAIN in episode 11 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:54:27, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:54:57, INFO: TRAIN in episode 12 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:54:57, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:55:26, INFO: TRAIN in episode 13 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:55:26, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:55:46, INFO: TRAIN in episode 14 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:55:46, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:56:24, INFO: TRAIN in episode 15 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:56:24, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:56:57, INFO: TRAIN in episode 16 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:56:57, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:57:23, INFO: TRAIN in episode 17 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:57:23, INFO: Training phase switched to: human_avoidance
+2025-03-10 14:57:53, INFO: TRAIN in episode 18 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: 0.4288
+2025-03-10 14:57:53, INFO: Training phase switched to: human_avoidance

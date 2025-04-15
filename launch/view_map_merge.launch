@@ -1,0 +1,4 @@
+
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find multi_master)/rviz/multi_map_slam.rviz" />
+</launch>

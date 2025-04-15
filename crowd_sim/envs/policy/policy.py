@@ -33,7 +33,7 @@ class Policy(object):
         return self.model
 
     @abc.abstractmethod
-    def predict(self, state):
+    def predict(self, state,robot_index):
         """
         Policy takes state as input and output an action
 
@@ -43,7 +43,30 @@ class Policy(object):
     @staticmethod
     def reach_destination(state):
         self_state = state.self_state
-        if np.linalg.norm((self_state.py - self_state.gy, self_state.px - self_state.gx)) < self_state.radius:
-            return True
+        # 计算当前位置到目标点的距离
+        goal_distance = np.linalg.norm((self_state.py - self_state.gy, self_state.px - self_state.gx))
+        
+        # 获取移动方向
+        dx = self_state.gx - self_state.px
+        dy = self_state.gy - self_state.py
+        
+        # 根据主要移动方向调整阈值
+        if abs(dx) > abs(dy):
+            # 主要水平移动（左右）
+            if dx > 0:  # 左到右
+                # 左到右移动可能过头，使用更严格的条件
+                threshold = self_state.radius * 0.8
+            else:  # 右到左
+                # 右到左移动可能不足，使用宽松一点的条件
+                threshold = self_state.radius * 1.5
         else:
-            return False
+            # 主要垂直移动（上下）
+            if dy > 0:  # 下到上
+                # 下到上移动可能不足，使用宽松一点的条件
+                threshold = self_state.radius * 1.5
+            else:  # 上到下
+                # 上到下移动可能过头，使用更严格的条件
+                threshold = self_state.radius * 0.8
+        
+        # 使用调整后的阈值判断是否到达目标
+        return goal_distance < threshold

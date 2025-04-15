@@ -106,6 +106,10 @@ class CADRL(Policy):
             # propagate state of humans
             next_px = state.px + action.vx * self.time_step
             next_py = state.py + action.vy * self.time_step
+            # next_px1 = state.px1 + action1.vx * self.time_step
+            # next_px2 = state.px2 + action2.vx * self.time_step
+            # next_py1 = state.py1 + action1.vy * self.time_step
+            # next_py2 = state.py2 + action2.vy * self.time_step
             next_state = ObservableState(next_px, next_py, action.vx, action.vy, state.radius)
         elif isinstance(state, FullState):
             # propagate state of current agent
@@ -113,6 +117,10 @@ class CADRL(Policy):
             if self.kinematics == 'holonomic':
                 next_px = state.px + action.vx * self.time_step
                 next_py = state.py + action.vy * self.time_step
+                # next_px1 = state.px + action1.vx * self.time_step
+                # next_px2 = state.px + action2.vx * self.time_step
+                # next_py1 = state.py + action1.vy * self.time_step
+                # next_py2 = state.py + action2.vy * self.time_step
                 next_state = FullState(next_px, next_py, action.vx, action.vy, state.radius,
                                        state.gx, state.gy, state.v_pref, state.theta)
             else:
@@ -121,6 +129,16 @@ class CADRL(Policy):
                 next_vy = action.v * np.sin(next_theta)
                 next_px = state.px + next_vx * self.time_step
                 next_py = state.py + next_vy * self.time_step
+                # next_theta1 = state.theta + action1.r
+                # next_theta2 = state.theta + action2.r
+                # next_vx1 = action1.v * np.cos(next_theta1)
+                # next_vy1 = action1.v * np.sin(next_theta1)
+                # next_vx2 = action2.v * np.cos(next_theta2)
+                # next_vy2 = action2.v * np.sin(next_theta2)
+                # next_px1 = state.px1 + next_vx1 * self.time_step
+                # next_px2 = state.px2 + next_vx2 * self.time_step
+                # next_py1 = state.py1 + next_vy1 * self.time_step
+                # next_py2 = state.py2 + next_vy2 * self.time_step
                 next_state = FullState(next_px, next_py, next_vx, next_vy, state.radius, state.gx, state.gy,
                                        state.v_pref, next_theta)
         else:
@@ -128,7 +146,7 @@ class CADRL(Policy):
 
         return next_state
 
-    def predict(self, state):
+    def predict(self, state, robot_index):
         """
         Input state is the joint state of robot concatenated by the observable state of other agents
 
@@ -155,8 +173,9 @@ class CADRL(Policy):
             max_action = None
             for action in self.action_space:
                 next_self_state = self.propagate(state.self_state, action)
+                next_observed_state = self.propagate(state.other_robot_state, action)
                 ob, reward, done, info = self.env.onestep_lookahead(action)
-                batch_next_states = torch.cat([torch.Tensor([next_self_state + next_human_state]).to(self.device)
+                batch_next_states = torch.cat([torch.Tensor([next_self_state + next_observed_state + next_human_state]).to(self.device)
                                               for next_human_state in ob], dim=0)
                 # VALUE UPDATE
                 outputs = self.model(self.rotate(batch_next_states))
@@ -174,15 +193,29 @@ class CADRL(Policy):
 
     def transform(self, state):
         """
-        Take the state passed from agent and transform it to tensor for batch training
-
+        Transform the state passed from the agent to the input of the value network.
         :param state:
-        :return: tensor of shape (len(state), )
+        :return: tensor of shape (# of humans + 1, state_length)
         """
-        assert len(state.human_states) == 1
-        state = torch.Tensor(state.self_state + state.human_states[0]).to(self.device)
-        state = self.rotate(state.unsqueeze(0)).squeeze(dim=0)
-        return state
+        state_list = []
+
+        # Self state and other robot state
+        self_state = torch.Tensor(state.self_state).to(self.device)
+        other_robot_state = torch.Tensor(state.other_robot_state).to(self.device)
+
+        # Include other robot's state
+        joint_state = torch.cat((self_state, other_robot_state))
+
+        # Now, for each human
+        for human_state in state.human_states:
+            human_state_tensor = torch.Tensor(human_state).to(self.device)
+            combined_state = torch.cat((joint_state, human_state_tensor))
+            state_list.append(combined_state)
+
+        # Stack the state tensors
+        state_tensor = torch.stack(state_list)
+        state_tensor = self.rotate(state_tensor)
+        return state_tensor
 
     def rotate(self, state):
         """
@@ -190,33 +223,112 @@ class CADRL(Policy):
         Input state tensor is of size (batch_size, state_length)
 
         """
-        # 'px', 'py', 'vx', 'vy', 'radius', 'gx', 'gy', 'v_pref', 'theta', 'px1', 'py1', 'vx1', 'vy1', 'radius1'
-        #  0     1      2     3      4        5     6      7         8       9     10      11     12       13
-        batch = state.shape[0]
-        dx = (state[:, 5] - state[:, 0]).reshape((batch, -1))
-        dy = (state[:, 6] - state[:, 1]).reshape((batch, -1))
-        rot = torch.atan2(state[:, 6] - state[:, 1], state[:, 5] - state[:, 0])
-
-        dg = torch.norm(torch.cat([dx, dy], dim=1), 2, dim=1, keepdim=True)
-        v_pref = state[:, 7].reshape((batch, -1))
-        vx = (state[:, 2] * torch.cos(rot) + state[:, 3] * torch.sin(rot)).reshape((batch, -1))
-        vy = (state[:, 3] * torch.cos(rot) - state[:, 2] * torch.sin(rot)).reshape((batch, -1))
-
-        radius = state[:, 4].reshape((batch, -1))
-        if self.kinematics == 'unicycle':
-            theta = (state[:, 8] - rot).reshape((batch, -1))
-        else:
-            # set theta to be zero since it's not used
-            theta = torch.zeros_like(v_pref)
-        vx1 = (state[:, 11] * torch.cos(rot) + state[:, 12] * torch.sin(rot)).reshape((batch, -1))
-        vy1 = (state[:, 12] * torch.cos(rot) - state[:, 11] * torch.sin(rot)).reshape((batch, -1))
-        px1 = (state[:, 9] - state[:, 0]) * torch.cos(rot) + (state[:, 10] - state[:, 1]) * torch.sin(rot)
-        px1 = px1.reshape((batch, -1))
-        py1 = (state[:, 10] - state[:, 1]) * torch.cos(rot) - (state[:, 9] - state[:, 0]) * torch.sin(rot)
-        py1 = py1.reshape((batch, -1))
-        radius1 = state[:, 13].reshape((batch, -1))
-        radius_sum = radius + radius1
-        da = torch.norm(torch.cat([(state[:, 0] - state[:, 9]).reshape((batch, -1)), (state[:, 1] - state[:, 10]).
-                                  reshape((batch, -1))], dim=1), 2, dim=1, keepdim=True)
-        new_state = torch.cat([dg, v_pref, theta, radius, vx, vy, px1, py1, vx1, vy1, radius1, da, radius_sum], dim=1)
-        return new_state
+        # 确保状态有效性
+        if state is None:
+            logging.warning("Rotate received None state")
+            return torch.zeros((1, 13), device=self.device)
+            
+        try:
+            # 检查输入维度并适当处理
+            if len(state.shape) == 1:
+                # 1D tensor, 添加batch维度
+                state = state.unsqueeze(0)
+            elif len(state.shape) == 3:
+                # 3D tensor, 压缩为2D
+                state = state.reshape(state.shape[0] * state.shape[1], state.shape[2])
+                
+            batch = state.shape[0]
+            
+            # 检查特征维度
+            feature_dim = state.shape[1]
+            if feature_dim < 6:
+                logging.warning(f"State has too few features: {feature_dim}, padding to minimum required")
+                padding = torch.zeros((batch, 6 - feature_dim), device=state.device)
+                state = torch.cat([state, padding], dim=1)
+                feature_dim = 6
+                
+            # 获取相关特征 - 安全访问
+            if feature_dim >= 7:
+                # px, py, vx, vy, radius, gx, gy, v_pref, theta, px1, py1, vx1, vy1, radius1
+                # 0   1   2   3   4      5   6   7      8      9    10   11   12   13
+                px = state[:, 0].unsqueeze(1)
+                py = state[:, 1].unsqueeze(1)
+                vx = state[:, 2].unsqueeze(1)
+                vy = state[:, 3].unsqueeze(1)
+                radius = state[:, 4].unsqueeze(1)
+                gx = state[:, 5].unsqueeze(1)
+                gy = state[:, 6].unsqueeze(1)
+            else:
+                # 最小化版本
+                px = state[:, 0].unsqueeze(1)
+                py = state[:, 1].unsqueeze(1)
+                vx = state[:, 2].unsqueeze(1)
+                vy = state[:, 3].unsqueeze(1)
+                radius = state[:, 4].unsqueeze(1)
+                gx = torch.zeros_like(px)
+                gy = torch.zeros_like(py)
+            
+            # 如果有额外特征（如v_pref和theta）
+            if feature_dim >= 9:
+                v_pref = state[:, 7].unsqueeze(1)
+                theta = state[:, 8].unsqueeze(1)
+            else:
+                v_pref = torch.ones_like(px)
+                theta = torch.zeros_like(px)
+            
+            # 计算差值
+            dx = gx - px
+            dy = gy - py
+            rot = torch.atan2(dy, dx)
+            
+            # 旋转速度矢量
+            dg = torch.sqrt(dx ** 2 + dy ** 2)
+            new_vx = torch.cos(rot) * vx + torch.sin(rot) * vy
+            new_vy = -torch.sin(rot) * vx + torch.cos(rot) * vy
+            
+            # 设置新状态
+            new_state = torch.zeros((batch, 7 if feature_dim < 9 else 9), device=state.device)
+            new_state[:, 0] = dg.squeeze(1)
+            new_state[:, 1] = new_vx.squeeze(1)
+            new_state[:, 2] = new_vy.squeeze(1)
+            new_state[:, 3] = radius.squeeze(1)
+            
+            # 处理人类/其他机器人特征（如果存在）
+            if feature_dim >= 14:
+                # 确保索引有效
+                px1 = state[:, 9].unsqueeze(1)
+                py1 = state[:, 10].unsqueeze(1)
+                vx1 = state[:, 11].unsqueeze(1)
+                vy1 = state[:, 12].unsqueeze(1)
+                radius1 = state[:, 13].unsqueeze(1)
+                
+                # 将坐标转换为以agent为中心并旋转
+                dx1 = px1 - px
+                dy1 = py1 - py
+                dx1_rot = torch.cos(rot) * dx1 + torch.sin(rot) * dy1
+                dy1_rot = -torch.sin(rot) * dx1 + torch.cos(rot) * dy1
+                
+                # 旋转速度矢量
+                vx1_rot = torch.cos(rot) * vx1 + torch.sin(rot) * vy1
+                vy1_rot = -torch.sin(rot) * vx1 + torch.cos(rot) * vy1
+                
+                # 添加到状态
+                new_state = torch.cat([new_state, dx1_rot, dy1_rot, vx1_rot, vy1_rot, radius1], dim=1)
+            
+            # 添加v_pref和theta（如果存在）
+            if feature_dim >= 9:
+                new_state[:, 4] = v_pref.squeeze(1)
+                new_state[:, 5] = theta.squeeze(1)
+                
+            # 解释剩余的特征（如果存在）
+            remaining_features = feature_dim - (14 if feature_dim >= 14 else feature_dim)
+            if remaining_features > 0 and feature_dim > 14:
+                # 附加剩余特征（不做任何转换）
+                new_state = torch.cat([new_state, state[:, 14:]], dim=1)
+            
+            return new_state
+        
+        except Exception as e:
+            logging.error(f"Error in rotate: {e}")
+            # 返回安全的张量以避免异常中断
+            return torch.zeros((1 if len(state.shape) == 1 else state.shape[0], 13), device=self.device)

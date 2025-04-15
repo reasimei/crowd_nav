@@ -1,0 +1,25 @@
+2025-03-26 23:18:17, INFO: Current git head hash code: %s
+2025-03-26 23:18:17, INFO: Using device: cuda:0
+2025-03-26 23:18:20, INFO: robot number: 8
+2025-03-26 23:18:20, INFO: human number: 5
+2025-03-26 23:18:20, INFO: Not randomize human's radius and preferred speed
+2025-03-26 23:18:20, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-26 23:18:20, INFO: Square width: 10.0, circle width: 4.0
+2025-03-26 23:18:20, INFO: Current learning rate: 0.010000
+2025-03-27 11:28:12, INFO: TRAIN has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -2.6655
+2025-03-27 11:28:12, INFO: Training phase switched to: human_avoidance
+2025-03-27 11:36:33, INFO: Finish imitation learning. Weights saved.
+2025-03-27 11:36:33, INFO: Experience set size: 100000/100000
+2025-03-27 11:36:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-27 11:36:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-27 11:36:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-27 11:36:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-27 11:36:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-27 11:36:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-27 11:36:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-27 11:36:33, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-27 11:36:33, INFO: Current learning rate: 0.001000
+2025-03-27 11:52:20, INFO: VAL in episode 0 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -2.1857
+2025-03-27 11:52:20, INFO: Frequency of being in danger: 0.00 and average min separate distance in danger: 0.00
+2025-03-27 12:04:16, INFO: TRAIN in episode 0 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -5.5232
+2025-03-27 12:04:16, INFO: Training phase switched to: robot_avoidance

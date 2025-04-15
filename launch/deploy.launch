@@ -1,0 +1,37 @@
+<launch>
+    <!-- Parameters -->
+    <param name="robot_vel_com" value="8000" />
+    <param name="map_com" value="9000" />
+    <param name="tf_com" value="10000" />
+    <param name="odom_com" value="11000" />
+    <param name="pose_com" value="12000" />
+    <param name="scantopic_name" value="/robot_scan" />
+    <param name="laserlink_name" value="base_laser" />
+    <param name="maptopic_name" value="/robot_map" />
+    <param name="odomtopic_name" value="/robot_odom" />
+    <param name="baselink_name" value="base_link" />
+    
+    <!-- Upper computer node -->
+    <node name="upper_computer_node" pkg="crowd_nav" type="test_2_2robots_hose4_deploy.py" output="screen"
+          args="--policy sarl --model_dir $(find crowd_nav)/data/output --phase test --traj --visualize --test_case 0" />
+
+    <!-- Robot nodes - using groups for better organization -->
+    <group ns="robots">
+        <!-- Robot nodes will be created based on robot_num in the code -->
+        <node name="robot_1_node" pkg="crowd_nav" type="robot.py" args="0" output="screen" />
+        <node name="robot_2_node" pkg="crowd_nav" type="robot.py" args="1" output="screen" />
+        <node name="robot_3_node" pkg="crowd_nav" type="robot.py" args="2" output="screen" />
+        <node name="robot_4_node" pkg="crowd_nav" type="robot.py" args="3" output="screen" />
+        <!-- Add more robot nodes as needed -->
+    </group>
+
+    <!-- Pedestrian detector nodes - using groups for better organization -->
+    <group ns="pedestrian_detectors">
+        <!-- Detector nodes will be created based on robot_num in the code -->
+        <node name="pedestrian_detector_robot_1" pkg="crowd_nav" type="publish_pedestrian_positions.py" args="1" output="screen" />
+        <node name="pedestrian_detector_robot_2" pkg="crowd_nav" type="publish_pedestrian_positions.py" args="2" output="screen" />
+        <node name="pedestrian_detector_robot_3" pkg="crowd_nav" type="publish_pedestrian_positions.py" args="3" output="screen" />
+        <node name="pedestrian_detector_robot_4" pkg="crowd_nav" type="publish_pedestrian_positions.py" args="4" output="screen" />
+        <!-- Add more detector nodes as needed -->
+    </group>
+</launch>

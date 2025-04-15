@@ -1,0 +1,37 @@
+2025-03-09 21:05:19, INFO: Current git head hash code: %s
+2025-03-09 21:05:19, INFO: Using device: cuda:0
+2025-03-09 21:05:19, INFO: Policy: SARL w/ global state
+2025-03-09 21:05:19, INFO: robot number: 8
+2025-03-09 21:05:19, INFO: human number: 5
+2025-03-09 21:05:19, INFO: Not randomize human's radius and preferred speed
+2025-03-09 21:05:19, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2025-03-09 21:05:19, INFO: Square width: 10.0, circle width: 4.0
+2025-03-09 21:05:19, INFO: Current learning rate: 0.010000
+2025-03-09 21:12:05, INFO: TRAIN has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0044
+2025-03-09 21:13:21, INFO: Finish imitation learning. Weights saved.
+2025-03-09 21:13:21, INFO: Experience set size: 100000/100000
+2025-03-09 21:13:21, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 21:13:21, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 21:13:21, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 21:13:21, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 21:13:21, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 21:13:21, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 21:13:21, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 21:13:21, INFO: Agent is visible and has holonomic kinematic constraint
+2025-03-09 21:13:21, INFO: Current learning rate: 0.001000
+2025-03-09 21:13:21, WARNING: No valid action found, using default action
+2025-03-09 21:14:15, INFO: VAL   in episode 0 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:14:15, INFO: Frequency of being in danger: 0.00 and average min separate distance in danger: 0.00
+2025-03-09 21:14:45, INFO: TRAIN in episode 0 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:15:11, INFO: TRAIN in episode 1 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:15:20, INFO: TRAIN in episode 2 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:15:47, INFO: TRAIN in episode 3 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:16:13, INFO: TRAIN in episode 4 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:16:51, INFO: TRAIN in episode 5 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:17:00, INFO: TRAIN in episode 6 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:17:26, INFO: TRAIN in episode 7 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:17:52, INFO: TRAIN in episode 8 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:18:19, INFO: TRAIN in episode 9 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:18:46, INFO: TRAIN in episode 10 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:19:05, INFO: TRAIN in episode 11 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000
+2025-03-09 21:19:29, INFO: TRAIN in episode 12 has success rate: 0.00, collision rate: 1.00, nav time: 35.00, total reward: -0.0000

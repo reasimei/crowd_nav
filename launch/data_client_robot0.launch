@@ -1,0 +1,7 @@
+<launch>
+  <param name="odom_com" value="8001"/>
+  <param name="tf_com" value="8002"/>
+  <param name="scan_com" value="8007"/>
+  <node pkg="multi_master" name="data_client_robot0" type="data_client_robot0.py"/>
+  <node pkg="multi_master" name="tf_client" type="tf_client.py"/>
+</launch> 

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Include the xacro file with robot_num parameter -->
+    <arg name="robot_num" default="2"/>
+    <include file="$(find crowd_nav)/launch/deploy.launch.xacro" pass_all_args="true"/>
+</launch>
