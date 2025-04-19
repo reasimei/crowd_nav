@@ -1121,6 +1121,7 @@ class LLMSARL(SARL):
                 other_robots = [other_robots]   
             # 格式化状态用于LLM
             state_desc = self.llm_decision_maker.format_state_for_llm(
+                robot_index,
                 state.self_state, 
                 state.human_states,
                 other_robots
@@ -1181,7 +1182,7 @@ class LLMSARL(SARL):
                 except Exception as e:
                     logging.error(f"Error building action space: {e}")
                     return ActionXY(0, 0) if self.kinematics == 'holonomic' else ActionRot(0, 0)    
-                print("动作空间个数:",len(self.action_space))
+                # print("动作空间个数:",len(self.action_space))
                 # 将LLM建议传递给RL优化
                 max_value = -100
     
@@ -1206,24 +1207,10 @@ class LLMSARL(SARL):
         
     def build_llm_action_space(self, v_pref, llm_vx, llm_vy):
         holonomic = True if self.kinematics == 'holonomic' else False
-        random_samples=2
-        action_space = [ActionXY(0, 0) if holonomic else ActionRot(0, 0)]
-        speeds = [(np.exp((i + 1) / random_samples) - 1) / (np.e - 1) * v_pref for i in range(random_samples)]
-        if holonomic:
-            rotations = np.linspace(0, 2 * np.pi, random_samples, endpoint=False)
-        else:
-            rotations = np.linspace(-np.pi / 4, np.pi / 4, random_samples)
-
-        # action_space = [ActionXY(0, 0) if holonomic else ActionRot(0, 0)]
-        for rotation, speed in itertools.product(rotations, speeds):
-            if holonomic:
-                action_space.append(ActionXY(speed * np.cos(rotation), speed * np.sin(rotation)))
-            else:
-                action_space.append(ActionRot(speed, rotation))
-
+        
         if holonomic:
             # Calculate vx range (±20% of llm_vx, but ensure it's not zero-range)
-            action_space.append(ActionXY(llm_vx,llm_vy))
+            action_space = [ActionXY(llm_vx,llm_vy)]
             if llm_vx != 0:
                 delta_vx = 0.2 * abs(llm_vx)
                 vx_min = llm_vx - delta_vx
@@ -1252,8 +1239,8 @@ class LLMSARL(SARL):
             vy_max = min(vy_max, v_pref)
             
             # Generate samples for vx and vy
-            vx_samples = np.linspace(vx_min, vx_max, self.speed_samples-random_samples)
-            vy_samples = np.linspace(vy_min, vy_max, self.speed_samples-random_samples)
+            vx_samples = np.linspace(vx_min, vx_max, self.speed_samples)
+            vy_samples = np.linspace(vy_min, vy_max, self.speed_samples)
             
             # action_space = [ActionXY(0, 0)]  # Stop action
             
@@ -1264,7 +1251,7 @@ class LLMSARL(SARL):
         else:
             # For non-holonomic, adjust speed around the magnitude of (llm_vx, llm_vy)    
             llm_speed = np.sqrt(llm_vx**2 + llm_vy**2)
-            action_space.append(ActionRot(llm_speed,np.arctan(llm_vy / llm_vx)))
+            action_space = [ActionRot(llm_speed,np.arctan(llm_vy / llm_vx))]
             if llm_speed > 0:
                 delta_speed = 0.2 * llm_speed
                 speed_min = max(0, llm_speed - delta_speed)  # speed cannot be negative
@@ -1275,10 +1262,10 @@ class LLMSARL(SARL):
                 speed_min = 0
                 speed_max = delta_speed
             
-            speeds = np.linspace(speed_min, speed_max, self.speed_samples-random_samples)
+            speeds = np.linspace(speed_min, speed_max, self.speed_samples)
             
             # Assume rotation is derived from the original direction (if applicable)
-            rotations = np.linspace(np.arctan(llm_vy / llm_vx)-np.pi/20, np.arctan(llm_vy / llm_vx)+np.pi/20, self.rotation_samples-random_samples)
+            rotations = np.linspace(np.arctan(llm_vy / llm_vx)-np.pi/20, np.arctan(llm_vy / llm_vx)+np.pi/20, self.rotation_samples)
             
             # action_space = [ActionRot(0, 0)]  # Stop action
             for rotation, speed in itertools.product(rotations, speeds):
@@ -1587,6 +1574,7 @@ class HierarchicalLLMSARL(HierarchicalSARL):
                 other_robots = [other_robots]   
             # 格式化状态用于LLM
             state_desc = self.llm_decision_maker.format_state_for_llm(
+                robot_index,
                 state.self_state, 
                 state.human_states,
                 other_robots
@@ -1647,7 +1635,7 @@ class HierarchicalLLMSARL(HierarchicalSARL):
                 except Exception as e:
                     logging.error(f"Error building action space: {e}")
                     return ActionXY(0, 0) if self.kinematics == 'holonomic' else ActionRot(0, 0)    
-                print("动作空间个数:",len(self.action_space))
+                # print("动作空间个数:",len(self.action_space))
                 # 将LLM建议传递给RL优化
                 max_value = -100
     
@@ -1672,24 +1660,10 @@ class HierarchicalLLMSARL(HierarchicalSARL):
         
     def build_llm_action_space(self, v_pref, llm_vx, llm_vy):
         holonomic = True if self.kinematics == 'holonomic' else False
-        random_samples=2
-        action_space = [ActionXY(0, 0) if holonomic else ActionRot(0, 0)]
-        speeds = [(np.exp((i + 1) / random_samples) - 1) / (np.e - 1) * v_pref for i in range(random_samples)]
-        if holonomic:
-            rotations = np.linspace(0, 2 * np.pi, random_samples, endpoint=False)
-        else:
-            rotations = np.linspace(-np.pi / 4, np.pi / 4, random_samples)
-
-        # action_space = [ActionXY(0, 0) if holonomic else ActionRot(0, 0)]
-        for rotation, speed in itertools.product(rotations, speeds):
-            if holonomic:
-                action_space.append(ActionXY(speed * np.cos(rotation), speed * np.sin(rotation)))
-            else:
-                action_space.append(ActionRot(speed, rotation))
-        # print("random_action_space个数:",len(action_space))
+        
         if holonomic:
             # Calculate vx range (±20% of llm_vx, but ensure it's not zero-range)
-            action_space.append(ActionXY(llm_vx,llm_vy))
+            action_space = [ActionXY(llm_vx,llm_vy)]
             if llm_vx != 0:
                 delta_vx = 0.2 * abs(llm_vx)
                 vx_min = llm_vx - delta_vx
@@ -1718,8 +1692,8 @@ class HierarchicalLLMSARL(HierarchicalSARL):
             vy_max = min(vy_max, v_pref)
             
             # Generate samples for vx and vy
-            vx_samples = np.linspace(vx_min, vx_max, self.speed_samples-random_samples)
-            vy_samples = np.linspace(vy_min, vy_max, self.speed_samples-random_samples)
+            vx_samples = np.linspace(vx_min, vx_max, self.speed_samples)
+            vy_samples = np.linspace(vy_min, vy_max, self.speed_samples)
             
             # action_space = [ActionXY(0, 0)]  # Stop action
             
@@ -1730,7 +1704,7 @@ class HierarchicalLLMSARL(HierarchicalSARL):
         else:
             # For non-holonomic, adjust speed around the magnitude of (llm_vx, llm_vy)    
             llm_speed = np.sqrt(llm_vx**2 + llm_vy**2)
-            action_space.append(ActionRot(llm_speed,np.arctan(llm_vy / llm_vx)))
+            action_space = [ActionRot(llm_speed,np.arctan(llm_vy / llm_vx))]
             if llm_speed > 0:
                 delta_speed = 0.2 * llm_speed
                 speed_min = max(0, llm_speed - delta_speed)  # speed cannot be negative
@@ -1741,10 +1715,10 @@ class HierarchicalLLMSARL(HierarchicalSARL):
                 speed_min = 0
                 speed_max = delta_speed
             
-            speeds = np.linspace(speed_min, speed_max, self.speed_samples-random_samples)
+            speeds = np.linspace(speed_min, speed_max, self.speed_samples)
             
             # Assume rotation is derived from the original direction (if applicable)
-            rotations = np.linspace(np.arctan(llm_vy / llm_vx)-np.pi/10, np.arctan(llm_vy / llm_vx)+np.pi/20, self.rotation_samples-random_samples)
+            rotations = np.linspace(np.arctan(llm_vy / llm_vx)-np.pi/20, np.arctan(llm_vy / llm_vx)+np.pi/20, self.rotation_samples)
             
             # action_space = [ActionRot(0, 0)]  # Stop action
             for rotation, speed in itertools.product(rotations, speeds):

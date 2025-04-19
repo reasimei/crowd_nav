@@ -10,7 +10,7 @@ import imageio
 from gym.wrappers.monitoring.video_recorder import VideoRecorder
 from crowd_nav.utils.explorer import Explorer
 from crowd_nav.policy.policy_factory import policy_factory
-from crowd_sim.envs.utils.robot import Robot
+from crowd_sim.envs.utils.robot_zuixin import Robot
 from crowd_sim.envs.policy.orca import ORCA
 
 

@@ -344,7 +344,7 @@ class Robot(Agent):
                 speed_scale = 0.6 if humans_stable_at_goal else 0.4
                 final_vx *= speed_scale
                 final_vy *= speed_scale
-                logging.debug("降低速度以避免软管碰撞")
+                logging.info("降低速度以避免软管碰撞")
             
             # 人类静止在目标点时，确保有足够的速度朝向目标
             if humans_stable_at_goal:
@@ -390,7 +390,7 @@ class Robot(Agent):
         
         return action
 
-    def act_avoid_robots(self, ob):
+    def act_avoid_robots(self, ob, flag, lead, is_lead):
         """
         增强的机器人避让策略，添加先导-跟随队形和交叉区域协调通过机制
         """
@@ -407,20 +407,27 @@ class Robot(Agent):
         if dist_to_goal > 0:
             direction = direction / dist_to_goal
         else:
-            return ActionXY(0, 0)
+            return ActionXY(0, 0),0
+        
+        if dist_to_goal < 0.6: # 如果距离小于0.6，不用先导跟随
+            vx = speed * direction[0]
+            vy = speed * direction[1]
+            return ActionXY(vx, vy), 0
+        
         
         modified_direction = direction.copy()
         need_to_avoid = False
         
         # 检查是否人类已经全部达到目标
-        humans_stable_at_goal = False
-        if hasattr(self.env, 'all_humans_at_goal') and self.env.all_humans_at_goal:
-            if hasattr(self.env, 'humans_at_goal_time') and hasattr(self.env, 'goal_waiting_threshold'):
-                if (self.env.global_time - self.env.humans_at_goal_time) >= self.env.goal_waiting_threshold:
-                    humans_stable_at_goal = True
-        
+        # humans_stable_at_goal = False
+        # if hasattr(self.env, 'all_humans_at_goal') and self.env.all_humans_at_goal:
+        #     if hasattr(self.env, 'humans_at_goal_time') and hasattr(self.env, 'goal_waiting_threshold'):
+        #         if (self.env.global_time - self.env.humans_at_goal_time) >= self.env.goal_waiting_threshold:
+        #             humans_stable_at_goal = True
+        humans_stable_at_goal = True # 才会启用该函数
         # 如果人类没有稳定在目标点，使用原来的避让策略
         if not humans_stable_at_goal:
+            logging.info(f"humans not stable at goal, using original avoidance strategy")
             # 设置安全距离
             robot_safe_dist = 1.5
             human_safe_dist = 1.0
@@ -470,10 +477,40 @@ class Robot(Agent):
         
         # 如果人类稳定在目标点，启用先导-跟随协调机制
         else:
+            logging.info(f"humans stable at goal, using leader-follower strategy")
             # 获取伙伴和角色
-            partner = self.get_hose_partner()
-            if partner is not None:
-                lead, follow, is_lead = self.identify_lead_follow_roles()
+            # partner = self.get_hose_partner()
+            if lead is None: # 无软管
+                robot_safe_dist = 1.5
+                human_safe_dist = 1.0
+                # 检查与其他机器人的碰撞
+                for other_robot in ob:
+                    if isinstance(other_robot, Robot) and other_robot != self:
+                        other_pos = np.array([other_robot.px, other_robot.py])
+                        robot_dist = np.linalg.norm(other_pos - cur_pos)
+                        
+                        if robot_dist < robot_safe_dist:
+                            avoid_direction = (cur_pos - other_pos) / max(0.1, robot_dist)
+                            force_mag = (robot_safe_dist - robot_dist) / robot_safe_dist * 1.5
+                            modified_direction += avoid_direction * force_mag
+                            need_to_avoid = True
+                            speed *= 0.7
+                
+                # 检查与人类的碰撞
+                for human in ob:
+                    if not isinstance(human, Robot):
+                        human_pos = np.array([human.px, human.py])
+                        human_dist = np.linalg.norm(human_pos - cur_pos)
+                        
+                        if human_dist < human_safe_dist:
+                            avoid_direction = (cur_pos - human_pos) / max(0.1, human_dist)
+                            force_mag = (human_safe_dist - human_dist) / human_safe_dist * 1.5
+                            modified_direction += avoid_direction * force_mag
+                            need_to_avoid = True
+                            speed *= 0.5
+
+            else: # 有软管
+                # lead, follow, is_lead = self.identify_lead_follow_roles() 最开始调用一次，之后不用
                 
                 # 检测交叉区域
                 in_crossing_zone, center_distance, others_in_zone = self.detect_crossing_zone()
@@ -482,7 +519,7 @@ class Robot(Agent):
                 # 确定移动方向和对齐方式
                 movement_dir = self.determine_movement_direction()
                 alignment_type = self.determine_alignment_type()
-                
+                print(f"Robot {self.robot_index} movement_dir: {movement_dir} alignment_type: {alignment_type}")
                 # 记录状态用于调试
                 self.is_lead = is_lead
                 self.movement_direction = movement_dir
@@ -495,24 +532,25 @@ class Robot(Agent):
                     # 如果在交叉区域且应该等待，减速或停止
                     if in_crossing_zone and should_wait:
                         speed *= 0.3  # 大幅减速
-                        
+                        # logging.info(f"Robot {self.robot_index} (lead) slower in crossing zone")
                         # 如果已经很近中心，几乎停止
-                        if center_distance < 2.5:
+                        if center_distance < 3:
                             speed *= 0.1
                             
                             # 记录等待状态
                             self.is_waiting = True
-                            logging.debug(f"Robot {self.robot_index} (lead) waiting in crossing zone")
+                            logging.info(f"Robot {self.robot_index} (lead) waiting in crossing zone")
                         else:
                             # 小心接近
                             self.is_waiting = False
                         
                     # 如果是我们优先通过，保持正常速度
-                    elif in_crossing_zone and priority > 5:
+                    elif in_crossing_zone and not should_wait:
+                        speed *= (priority*0.1+0.5)
                         # 小幅减速，保持警觉
-                        speed *= 0.8
+                        # speed *= 0.8
                         self.is_waiting = False
-                        logging.debug(f"Robot {self.robot_index} (lead) passing through with priority {priority}")
+                        logging.info(f"Robot {self.robot_index} (lead) passing through with priority {priority}")
                     else:
                         # 正常移动
                         self.is_waiting = False
@@ -569,9 +607,9 @@ class Robot(Agent):
                     form_force_x, form_force_y, formation_distance = self.maintain_formation(lead)
                     
                     # 使用队形力替代目标方向
-                    if formation_distance > 0.3:  # 当偏离队形较大时
+                    if formation_distance > 0.5:  # 当偏离队形较大时
                         # 队形力对方向的影响随偏离程度增加
-                        formation_weight = min(0.8, formation_distance * 0.2)
+                        formation_weight = max(0.8, formation_distance * 0.4)
                         
                         # 计算加权方向
                         modified_direction = (1.0 - formation_weight) * direction
@@ -583,13 +621,15 @@ class Robot(Agent):
                             modified_direction = modified_direction / norm
                         
                         # 根据偏离程度调整速度
-                        deviation_factor = min(1.0, formation_distance / 3.0)
-                        speed_scale = 0.7 + 0.3 * deviation_factor  # 偏离越大速度越快(0.7-1.0)
+                        deviation_factor = max(0.6, formation_distance / 3.0)
+                        speed_scale = 0.7 + 0.5 * deviation_factor  # 偏离越大速度越快(0.7-1.0)
                         speed *= speed_scale
                         
-                        logging.debug(f"Robot {self.robot_index} (follower) maintaining formation, distance: {formation_distance:.2f}")
+                        logging.info(f"Robot {self.robot_index} (follower) maintaining formation, distance: {formation_distance:.2f}")
                     else:
                         # 队形良好，与先导机器人保持一致速度
+                        flag+=1
+                        logging.info(f"Robot {self.robot_index} (follower) maintaining formation well,follow the lead speed")
                         if hasattr(lead, 'policy') and hasattr(lead.policy, 'last_velocity'):
                             lead_speed = np.linalg.norm(lead.policy.last_velocity)
                             speed = min(speed, lead_speed * 1.1)  # 略快于先导以保持队形
@@ -632,7 +672,7 @@ class Robot(Agent):
             norm = np.linalg.norm(modified_direction)
             if norm > 0:
                 modified_direction = modified_direction / norm
-        
+        speed *= 1.3
         # 计算最终速度分量
         vx = speed * modified_direction[0]
         vy = speed * modified_direction[1]
@@ -643,7 +683,8 @@ class Robot(Agent):
         else:
             self.policy.last_velocity = np.array([vx, vy])
         
-        return ActionXY(vx, vy)
+        return ActionXY(vx, vy),flag
+
 
     def get_hose_partner(self):
         """
@@ -1288,11 +1329,11 @@ class Robot(Agent):
         """
         movement_dir = self.determine_movement_direction()
         
-        # 如果是水平方向移动，需要纵向对齐
+        # 如果是水平方向移动
         if movement_dir == 'horizontal':
-            return 'vertical_alignment'  # 上下排列
-        else:
             return 'horizontal_alignment'  # 左右排列
+        else:
+            return 'vertical_alignment'  # 上下排列
 
     def identify_lead_follow_roles(self):
         """
@@ -1314,15 +1355,15 @@ class Robot(Agent):
         if movement_dir == 'horizontal':
             # 如果是从左到右移动
             if self.gx > self.px:
-                # 比较y坐标，y较小的(上方的)先导
+                # 比较y坐标，y较小的(下方的)先导
                 if self.py < partner.py:
                     return self, partner, True
                 else:
                     return partner, self, False
             # 如果是从右到左移动
             else:
-                # 比较y坐标，y较小的(上方的)先导
-                if self.py < partner.py:
+                # 比较y坐标，y较大的(上方的)先导
+                if self.py > partner.py:
                     return self, partner, True
                 else:
                     return partner, self, False
@@ -1338,8 +1379,8 @@ class Robot(Agent):
                     return partner, self, False
             # 如果是从下到上移动
             else:
-                # 比较x坐标，x较小的(左侧的)先导
-                if self.px < partner.px:
+                # 比较x坐标，x较大的(右侧的)先导
+                if self.px > partner.px:
                     return self, partner, True
                 else:
                     return partner, self, False
@@ -1399,6 +1440,7 @@ class Robot(Agent):
         if not in_zone and center_distance > 4.0:
             return 8, False
             
+            
         # 获取移动方向和先导/跟随角色
         movement_dir = self.determine_movement_direction()
         lead, follow, is_lead = self.identify_lead_follow_roles()
@@ -1431,8 +1473,11 @@ class Robot(Agent):
                             break
             
             # 水平移动时，如果有垂直移动的对在交叉区域，等待
-            if movement_dir == 'horizontal' and other_vertical_moving:
-                return base_priority - 3, True
+            if movement_dir == 'horizontal':
+                if other_vertical_moving:
+                    return base_priority - 3, True
+                else:
+                    return base_priority + 2, False
         
         # 返回最终优先级和等待标志
         return base_priority, False
@@ -1454,7 +1499,7 @@ class Robot(Agent):
         alignment = self.determine_alignment_type()
         
         # 理想距离(软管长度的大约80-90%)
-        ideal_distance = getattr(self.env, 'hose_length', 2.0) * 0.85
+        ideal_distance = getattr(self.env, 'hose_length', 2.0) * 0.9
         
         # 计算先导方向向量
         lead_dir = np.array([lead_robot.gx - lead_robot.px, lead_robot.gy - lead_robot.py])
@@ -1462,26 +1507,48 @@ class Robot(Agent):
         
         if lead_dist > 0.001:
             lead_dir = lead_dir / lead_dist
-        else:
-            lead_dir = np.array([1.0, 0.0])  # 默认向右
-        
-        # 根据对齐方式计算偏移向量
+            
         if alignment == 'horizontal_alignment':  # 左右对齐
-            # 计算垂直于移动方向的向量(左右)
-            offset_dir = np.array([-lead_dir[1], lead_dir[0]])
-            # 根据当前位置确定偏移方向
-            if np.dot(np.array([self.px - lead_robot.px, self.py - lead_robot.py]), offset_dir) < 0:
-                offset_dir = -offset_dir
-        else:  # 纵向对齐
-            # 计算垂直于移动方向的向量(上下)
-            offset_dir = np.array([lead_dir[1], -lead_dir[0]])
-            # 根据当前位置确定偏移方向
-            if np.dot(np.array([self.px - lead_robot.px, self.py - lead_robot.py]), offset_dir) < 0:
-                offset_dir = -offset_dir
+            if lead_dist <= 0.001:
+                if lead_dir[0]>=0:
+                    lead_dir = np.array([1.0, 0.0])
+                if lead_dir[0]<0:
+                    lead_dir = np.array([-1.0, 0.0])
+            if np.dot(np.array([self.px - lead_robot.px, self.py - lead_robot.py]), -lead_dir) < 0:
+                target_x = lead_robot.px - lead_dir[0] * ideal_distance
+                target_y = lead_robot.py + lead_dir[1] * ideal_distance
+            else:
+                target_x = lead_robot.px - lead_dir[0] * ideal_distance
+                target_y = lead_robot.py - lead_dir[1] * ideal_distance
+        else:
+            if lead_dist <= 0.001:
+                if lead_dir[1]>=0:
+                    lead_dir = np.array([0.0, 1.0])
+                if lead_dir[1]<0:
+                    lead_dir = np.array([0.0, -1.0])
+            if np.dot(np.array([self.px - lead_robot.px, self.py - lead_robot.py]), -lead_dir) < 0:
+                target_x = lead_robot.px + lead_dir[0] * ideal_distance
+                target_y = lead_robot.py - lead_dir[1] * ideal_distance
+            else:
+                target_x = lead_robot.px - lead_dir[0] * ideal_distance
+                target_y = lead_robot.py - lead_dir[1] * ideal_distance
+        # # 根据对齐方式计算偏移向量
+        # if alignment == 'horizontal_alignment':  # 左右对齐
+        #     # 计算垂直于移动方向的向量(左右)
+        #     offset_dir = np.array([-lead_dir[1], lead_dir[0]])
+        #     # 根据当前位置确定偏移方向
+        #     if np.dot(np.array([self.px - lead_robot.px, self.py - lead_robot.py]), offset_dir) < 0:
+        #         offset_dir = -offset_dir
+        # else:  # 纵向对齐
+        #     # 计算垂直于移动方向的向量(上下)
+        #     offset_dir = np.array([lead_dir[1], -lead_dir[0]])
+        #     # 根据当前位置确定偏移方向
+        #     if np.dot(np.array([self.px - lead_robot.px, self.py - lead_robot.py]), offset_dir) < 0:
+        #         offset_dir = -offset_dir
         
-        # 计算目标位置: 先导位置 + 偏移距离
-        target_x = lead_robot.px + offset_dir[0] * ideal_distance
-        target_y = lead_robot.py + offset_dir[1] * ideal_distance
+        # # 计算目标位置: 先导位置 + 偏移距离
+        # target_x = lead_robot.px + offset_dir[0] * ideal_distance
+        # target_y = lead_robot.py + offset_dir[1] * ideal_distance
         
         return target_x, target_y
 
@@ -1502,7 +1569,9 @@ class Robot(Agent):
         
         # 计算理想位置
         target_x, target_y = self.calculate_formation_position(lead_robot)
-        
+        logging.info(f"先导位置: {lead_robot.px}, {lead_robot.py}")
+        logging.info(f"理想位置: {target_x}, {target_y}")
+        logging.info(f"当前位置: {self.px}, {self.py}")
         # 计算当前位置到理想位置的向量
         formation_vec = np.array([target_x - self.px, target_y - self.py])
         formation_distance = np.linalg.norm(formation_vec)
@@ -1521,7 +1590,7 @@ class Robot(Agent):
         
         if formation_distance > 0.1:  # 避免除以非常小的数
             # 力度随着偏离程度增加
-            force_magnitude = min(2.0, formation_distance * 0.8)
+            force_magnitude = min(3.0, formation_distance * 1.1)
             
             # 方向是朝向目标位置
             force_dir = formation_vec / formation_distance
@@ -1532,6 +1601,7 @@ class Robot(Agent):
             
             # 如果距离先导太远(软管绷紧)，增加力度
             if current_dist > hose_length * 0.95:
+                logging.info(f"距离先导太远(软管绷紧)，增加力度")
                 tension_factor = min(3.0, (current_dist - hose_length * 0.95) * 4.0)
                 
                 # 朝向先导的方向
@@ -1548,7 +1618,8 @@ class Robot(Agent):
             
             # 如果距离先导太近，增加排斥力
             elif current_dist < hose_length * 0.4:
-                repel_factor = min(2.0, (hose_length * 0.4 - current_dist) * 3.0)
+                logging.info(f"距离先导太近(软管松弛)，增加排斥力")
+                repel_factor = min(2.0, (hose_length * 0.4 - current_dist) * 0.8)
                 
                 # 远离先导的方向
                 from_lead_dir = np.array([

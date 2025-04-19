@@ -106,6 +106,7 @@ def main():
     # explorer = Explorer(env, robot1, robot2, device, gamma=0.9)
 
     policy.set_phase(args.phase)
+    phase_changed = False
     policy.set_device(device)
     # Set safety space for ORCA in non-cooperative simulation
     # if isinstance(robot1.policy, ORCA) and isinstance(robot2.policy, ORCA):
@@ -138,12 +139,30 @@ def main():
         robot_positions = []
         human_positions = []
         times = []
+        is_lead = [None]*robot_num
+        lead = [None]*robot_num
+        follow = [None]*robot_num
 
+        for i in range(robot_num):
+            partner = robots[i].get_hose_partner()
+            if partner is not None:
+                lead[i],follow[i],is_lead[i] = robots[i].identify_lead_follow_roles()
         # Access the list of humans
         humans = env.humans  # Assuming env.humans is a list of human agents
 
         while not done:
+            # 人类避障/机器人协调训练阶段切换
+            if (args.policy == 'h_sarl' or args.policy == 'h_llm_sarl'):
+                # 如果所有人类都到达目标，切换到机器人协调阶段
+                if not phase_changed and all(h.reached_destination() for h in humans):
+                   # 传递新阶段给所有机器人
+                    for robot in robots:
+                        robot.training_phase = 'robot_avoidance'
+                        phase_changed = True
+
+
             # Each robot uses its own observation
+            flag = 0
             actions = []
             current_pos = []
             for i in range(robot_num):
@@ -152,9 +171,11 @@ def main():
                     if args.policy == 'h_sarl' or args.policy == 'h_llm_sarl':
                         # Use the same specialized methods as in training
                         if robot.training_phase == 'human_avoidance':
+                            print('training_phase:human_avoidance')
                             robot_action = robot.act_avoid_humans(ob)
                         elif robot.training_phase == 'robot_avoidance':
-                            robot_action = robot.act_avoid_robots(ob)
+                            print('training_phase:robot_avoidance')
+                            robot_action,flag = robot.act_avoid_robots(ob,flag,lead[i],is_lead[i])
                         else:
                             robot_action = robot.act(ob)
                     else:
@@ -162,7 +183,8 @@ def main():
                         robot_action = robot.act(ob)
                     
                     # Ensure action is valid
-                    if robot_action is None:
+                    if robot_action is None or not (hasattr(robot_action, 'vx') and hasattr(robot_action, 'vy')):
+                        logging.warning(f"Robot {i} action is None or not ActionXY/ActionRot,return stop action")
                         if robot.kinematics == 'holonomic':
                             robot_action = ActionXY(0, 0)
                         else:
@@ -343,7 +365,7 @@ def main():
         # Save the animation
         try:
             if args.traj:
-                anim.save('./result/hllmsarl/test_038.gif', writer='pillow', fps=10)
+                anim.save('./result/hllmsarl/test_039.gif', writer='pillow', fps=10)
                 logging.info('Trajectory GIF saved as test_001.gif')
             else:
                 # 检查 ffmpeg 是否可用

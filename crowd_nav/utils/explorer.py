@@ -103,7 +103,7 @@ class Explorer(object):
                 
                 # 清空动作
                 action = []
-                
+                flag = 0
                 # 每个机器人计算动作
                 for robot in self.robots:
                     try:
@@ -112,7 +112,7 @@ class Explorer(object):
                             if self.training_phase == 'human_avoidance':
                                 robot_action = robot.act_avoid_humans(ob)
                             elif self.training_phase == 'robot_avoidance':
-                                robot_action = robot.act_avoid_robots(ob)
+                                robot_action,flag = robot.act_avoid_robots(ob,flag)
                             else:
                                 robot_action = robot.act(ob)
                         else:
@@ -142,6 +142,7 @@ class Explorer(object):
                 
                 # 执行动作
                 ob, reward, done, info = self.env.step1(action)
+                reward += flag*0.3
                 ep_reward += reward  # 记录回合中的奖励
                 
                 # 保存状态和动作
@@ -179,8 +180,11 @@ class Explorer(object):
                     self.update_memory(states, actions, rewards, imitation_learning)
             
             # 计算折扣奖励
-            cum_reward = sum([pow(self.gamma, t * sum(robot.time_step * robot.v_pref for robot in self.robots))
-                             * reward for t, reward in enumerate(rewards)])
+            self.gamma = 0.9 # 折扣因子,更关注长期奖励
+            # cum_reward = sum([pow(self.gamma, t * sum(robot.time_step * robot.v_pref for robot in self.robots))
+            #                  * reward for t, reward in enumerate(rewards)])
+            cum_reward = sum([pow(self.gamma, t)
+                             * reward for t, reward in enumerate(rewards[::len(self.robots)])]) #除去重复的奖励
             cumulative_rewards.append(cum_reward)
             
             # 打印调试信息

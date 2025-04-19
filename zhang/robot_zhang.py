@@ -196,7 +196,7 @@ class Robot(Agent):
         #     return ActionXY(0, 0) if self.kinematics == 'holonomic' else ActionRot(0, 0)
 
 
-    def act_avoid_robots(self, ob):
+    def act_avoid_robots(self, ob, flag):
         """
         机器人避让策略,考虑:
         1. 与其他机器人的避碰

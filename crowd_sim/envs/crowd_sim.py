@@ -1054,7 +1054,7 @@ class CrowdSim(gym.Env):
             y_offset = 0.1
 
             # Determine plotting interval (every 1 seconds)
-            interval = max(1, int(math.ceil(0.8 / self.time_step)))
+            interval = max(1, int(math.ceil(0.5 / self.time_step)))
 
             # Create light and dark colors for robots
             robot_light_colors = []
@@ -1229,7 +1229,7 @@ class CrowdSim(gym.Env):
             
             if not os.path.exists('./result/hllmsarl'):
                 os.makedirs('./result/hllmsarl')
-            plt.savefig("./result/hllmsarl/test_038.png", dpi=300)
+            plt.savefig("./result/hllmsarl/test_039.png", dpi=300)
 
             
         elif mode == 'video':

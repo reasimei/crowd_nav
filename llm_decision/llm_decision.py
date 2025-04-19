@@ -32,15 +32,17 @@ class LLMDecisionMaker:
         self.last_valid_decision = None  # 存储最后一次有效的决策
         logging.info("LLM client initialized with DeepSeek API")
 
-    def format_state_for_llm(self, self_state: FullState, 
+    def format_state_for_llm(self, robot_index, self_state: FullState, 
                            human_states: List[ObservableState],
                            other_robot_states: List[FullState]) -> str:
         """将机器人状态转换为LLM可理解的描述"""
+        robot_num = len([r for r in other_robot_states if r is not None]) + 1
+        other_robot_index = [i for i in range(robot_num) if i != robot_index]
         # 构建状态描述字典
         state_desc = {
             # 当前机器人的状态信息
             "current_robot": {
-                "id": self_state.robot_id if hasattr(self_state, 'robot_id') else 0,
+                "id": robot_index,
                 "current_position": [round(self_state.px, 2), round(self_state.py, 2)],
                 "current_velocity": [round(self_state.vx, 2), round(self_state.vy, 2)],
                 "goal_position": [round(self_state.gx, 2), round(self_state.gy, 2)],
@@ -63,7 +65,7 @@ class LLMDecisionMaker:
             # 其他机器人的状态信息列表
             "other_robots": [
                 {
-                    "id": r.robot_id if hasattr(r, 'robot_id') else i,
+                    "id": other_robot_index[i],
                     "position": [round(r.px, 2), round(r.py, 2)],
                     "velocity": [round(r.vx, 2), round(r.vy, 2)],
                     "goal_position": [round(r.gx, 2), round(r.gy, 2)],
@@ -208,7 +210,7 @@ class LLMDecisionMaker:
             if self.last_valid_decision is None:
                 self.last_valid_decision = self._get_default_decision()
             return self.last_valid_decision
-        logging.info(f"training_calls:{self.training_calls} llm_epoch:{(int)(self.training_calls/robot_num)+1} Attempting LLM API call...")   
+        logging.info(f"llm_epoch:{(int)(self.training_calls/robot_num)+1} Attempting LLM API call...")   
         try:
             # print(state_desc)
             # 构建prompt
@@ -242,6 +244,7 @@ class LLMDecisionMaker:
                     json=payload
                 )
                 response_json = response.json()
+                # print("response_json: ", response_json)
                 if response.status_code != 200:
                     logging.warning(f"API request failed with status code {response.status_code}: {response.text}")
                     return self._get_default_decision()
@@ -254,9 +257,9 @@ class LLMDecisionMaker:
                         self.current_key_index = (self.current_key_index + 1) % len(self.api_keys)
                         headers["Authorization"] = f"Bearer {self.api_keys[self.current_key_index]}"
                         print(f"Switched to API key index: {self.current_key_index}")
-                    if self.current_key_index == 0:
-                        logging.error("All API keys have reached their usage limits.")
-                        return self._get_default_decision(state_desc)
+                    # if self.current_key_index == 0:
+                    #     logging.error("All API keys have reached their usage limits.")
+                    #     return self._get_default_decision(state_desc)
                     
                 content_type = response.headers.get("Content-Type", "")
                 if not content_type.startswith("application/json"):
@@ -386,8 +389,8 @@ class LLMDecisionMaker:
                 }},
                 "reasoning": "<explanation_for_this_robot's_decision>"
             }},
-            // Repeat for ALL robots in the system,robot_id from 0 to (robot_num-1),don't forget the last Robot 7
-        
+            // Repeat for ALL robots in the system
+        ],
         "overall_reasoning": "<overall_situation_analysis>"
     }}
 

@@ -1,5 +1,5 @@
 import numpy as np
-
+import json
 
 def point_to_segment_dist(x1, y1, x2, y2, x3, y3):
     """
@@ -76,7 +76,10 @@ def hose_model(robot1, robot2, hose_length):
 
         # 在局部坐标系中生成正弦曲线
         local_x = np.linspace(0, distance, num_points)
-        local_y = amplitude * np.sin(2 * np.pi * local_x / wavelength)
+        if (x1>0 and x2>0 and (y1<0 or y2<0)) or (y1<0 and y2<0):
+            local_y = -amplitude * np.sin(2 * np.pi * local_x / wavelength)
+        else:
+            local_y = amplitude * np.sin(2 * np.pi * local_x / wavelength)
 
         # 将局部坐标系转换回全局坐标系
         rotation_matrix = np.array([[np.cos(phase), -np.sin(phase)],
@@ -108,3 +111,22 @@ def point_to_hose_curve(point, robot1, robot2, hose_length, num_points=100):
     
     # 返回最小距离
     return np.min(distances)
+
+def fix_incomplete_json(json_str):
+        """自动修复缺少闭合括号的 JSON 字符串"""
+        # 统计大括号数量
+        open_braces = json_str.count('{')
+        close_braces = json_str.count('}')
+        
+        # 如果缺少闭合括号
+        if open_braces > close_braces:
+            missing_braces = open_braces - close_braces
+            json_str += '}' * missing_braces  # 补充缺失的闭合括号
+        
+        # 尝试解析验证
+        try:
+            json.loads(json_str)
+            return json_str
+        except json.JSONDecodeError as e:
+            # 如果仍然无效，尝试更智能的修复
+            return json_str + '}' * (open_braces - close_braces)  # 强制补全
