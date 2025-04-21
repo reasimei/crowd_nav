@@ -29,8 +29,8 @@ def process_rewards(rewards, window_size=100, smooth_factor=5):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('log_files', type=str, nargs='+')
-    parser.add_argument('--window_size', type=int, default=100)
-    parser.add_argument('--smooth_factor', type=int, default=5)
+    parser.add_argument('--window_size', type=int, default=1)
+    parser.add_argument('--smooth_factor', type=int, default=1)
     args = parser.parse_args()
 
     # Set up plot style

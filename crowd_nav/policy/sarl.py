@@ -1128,10 +1128,14 @@ class LLMSARL(SARL):
             )
             
             # 获取LLM决策建议
-            llm_advice = self.llm_decision_maker.get_llm_decision(
-                state_desc, 
-                is_training=(self.phase == 'train')
-            )
+            if robot_index == 0:
+                llm_advice = None
+            else:
+                llm_advice = self.llm_decision_maker.get_llm_decision(
+                    state_desc, 
+                    llm_advice,
+                    is_training=(self.phase == 'train')
+                )
             if self.debug_llm:
                 logging.info(f"LLM advice: {llm_advice}")
             
@@ -1162,6 +1166,7 @@ class LLMSARL(SARL):
                     advice['vy'] = vy_limited
 
                  # 提取第一个robot_id为0（current robot）的vx和vy
+                llm_vx, llm_vy = 0,0
                 for advice in robot_advices:
                     if advice["robot_id"] == robot_index:
                         llm_vx = advice["vx"]
@@ -1581,10 +1586,14 @@ class HierarchicalLLMSARL(HierarchicalSARL):
             )
             
             # 获取LLM决策建议
-            llm_advice = self.llm_decision_maker.get_llm_decision(
-                state_desc, 
+            if robot_index == 0:
+                LLMDecisionMaker.llm_advice = None
+            LLMDecisionMaker.llm_advice = self.llm_decision_maker.get_llm_decision(
+                state_desc,
+                LLMDecisionMaker.llm_advice, 
                 is_training=(self.phase == 'train')
             )
+            llm_advice = LLMDecisionMaker.llm_advice
             if self.debug_llm:
                 logging.info(f"LLM advice: {llm_advice}")
             
@@ -1614,7 +1623,8 @@ class HierarchicalLLMSARL(HierarchicalSARL):
                     advice['vx'] = vx_limited
                     advice['vy'] = vy_limited
 
-                 # 提取第一个robot_id为0（current robot）的vx和vy
+                 # 提取第一个robot_id为current robot的vx和vy
+                llm_vx, llm_vy = 0,0
                 for advice in robot_advices:
                     if advice["robot_id"] == robot_index:
                         llm_vx = advice["vx"]
@@ -1625,7 +1635,7 @@ class HierarchicalLLMSARL(HierarchicalSARL):
                 llm_action = ActionXY(llm_vx, llm_vy)
                 
                 if self.debug_llm:
-                    logging.info(f"LLM suggested velocity for Robot{robot_index} : vx={llm_vx:.2f}, vy={llm_vy:.2f}")
+                    logging.info(f"LLM suggested velocity for Robot{robot_index+1} : vx={llm_vx:.2f}, vy={llm_vy:.2f}")
                 
                 logging.info("optimize with RL (LLM)")
                 # 确保动作空间已初始化
@@ -1645,7 +1655,7 @@ class HierarchicalLLMSARL(HierarchicalSARL):
                     if value > max_value:
                         max_value = value
                         llm_action = action
-                logging.info(f"RL finally suggested velocity for Robot{robot_index} : vx={llm_action.vx:.2f}, vy={llm_vy:.2f} with value of {max_value:.2f}")
+                logging.info(f"RL finally suggested velocity for Robot{robot_index+1} : vx={llm_action.vx:.2f}, vy={llm_vy:.2f} with value of {max_value:.2f}")
                 return llm_action
                 
             except (KeyError, ValueError, TypeError) as e:

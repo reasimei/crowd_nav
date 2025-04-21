@@ -10,6 +10,7 @@ from typing import List, Dict, Any, Optional
 from crowd_sim.envs.utils.state import FullState, ObservableState
 
 class LLMDecisionMaker:
+    llm_advice = None
     """使用大语言模型进行导航决策的类"""
     def __init__(self, api_key_file: str, env):
         # 读取API密钥文件
@@ -191,7 +192,7 @@ class LLMDecisionMaker:
                     
         return analysis
 
-    def get_llm_decision(self, state_desc: str, is_training: bool = False) -> Dict[str, Any]:
+    def get_llm_decision(self, state_desc: str, llm_advice ,is_training: bool = False) -> Dict[str, Any]:
         """查询LLM获取导航决策建议"""
         # 检查缓存
         if state_desc in self.cache:
@@ -210,173 +211,179 @@ class LLMDecisionMaker:
             if self.last_valid_decision is None:
                 self.last_valid_decision = self._get_default_decision()
             return self.last_valid_decision
-        logging.info(f"llm_epoch:{(int)(self.training_calls/robot_num)+1} Attempting LLM API call...")   
-        try:
-            # print(state_desc)
-            # 构建prompt
-            prompt = self._format_prompt(state_desc)
-            # print("prompt: ", prompt)
+        if llm_advice is not None:
+            return llm_advice
+        else:
+            logging.info(f"llm_epoch:{self.training_calls+1} Attempting LLM API call...")   
             try:
-                current_key = self.api_keys[self.current_key_index]
-                self.client = OpenAI(api_key=current_key)
-                # 发送API请求
-                headers = {
-                    "Authorization": f"Bearer {self.client.api_key}",
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                }
-                
-                payload = {
-                    "model": "google/gemini-2.0-flash-thinking-exp:free", #"deepseek/deepseek-r1:free",
-                    "messages": [
-                        {"role": "system", "content": "You are an intelligent multi-robots navigation system. Please provide responses in valid JSON format!"},
-                        {"role": "user", "content": prompt}
-                    ],
-                    "temperature": 0.3,
-                    "max_tokens": 8000
-                }
-                
-                # 直接使用requests代替OpenAI客户端
-                response = requests.post(
-                    "https://openrouter.ai/api/v1/chat/completions",
-                    # "https://openrouter.ai/api/chat/completions",
-                    headers=headers,
-                    json=payload
-                )
-                response_json = response.json()
-                # print("response_json: ", response_json)
-                if response.status_code != 200:
-                    logging.warning(f"API request failed with status code {response.status_code}: {response.text}")
-                    return self._get_default_decision()
-                # print("response: ", response.status_code)
-                # 检查api速率限制
-                if response.status_code == 200 and "error" in response_json:
-                    error_code = response_json.get("error", {}).get("code")
-                    if error_code == 429:
-                        print(f"API rate limit reached! Response: {response_json}")
-                        self.current_key_index = (self.current_key_index + 1) % len(self.api_keys)
-                        headers["Authorization"] = f"Bearer {self.api_keys[self.current_key_index]}"
-                        print(f"Switched to API key index: {self.current_key_index}")
-                    # if self.current_key_index == 0:
-                    #     logging.error("All API keys have reached their usage limits.")
-                    #     return self._get_default_decision(state_desc)
-                    
-                content_type = response.headers.get("Content-Type", "")
-                if not content_type.startswith("application/json"):
-                    logging.warning(f"Unexpected Content-Type: {content_type}")
-                #     return self._get_default_decision()
-                # print("response_json: ", response.json())
-                #logging.info(f"response_text: {response.text}")
-                # 解析JSON响应
+                # print(state_desc)
+                # 构建prompt
+                prompt = self._format_prompt(state_desc)
+                # print("prompt: ", prompt)
                 try:
+                    current_key = self.api_keys[self.current_key_index]
+                    self.client = OpenAI(api_key=current_key)
+                    # 发送API请求
+                    headers = {
+                        "Authorization": f"Bearer {self.client.api_key}",
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    }
                     
-                    #print("response_json: ", response_json)
-                    content = response_json.get("choices", [{}])[0].get("message", {}).get("content", "")
-                except json.decoder.JSONDecodeError as e:
-                    print("JSONDecodeError:", str(e))
-                logging.info(f"LLM response received: {content[:100]}...")
-                
-                # 计算token使用量
-                tokens_used = response_json.get("usage", {}).get("total_tokens", 50)  # 默认值为估计值
-                self.total_tokens_used += tokens_used
-                logging.info(f"Tokens used: {tokens_used}, Total: {self.total_tokens_used}")
-                
-            except Exception as api_error:
-                logging.warning(f"API call error: {str(api_error)}")
-                return self._get_default_decision()
-            
-            # 清理响应内容
-            content = content.strip()
-            if content.startswith('```json'):
-                content = content[7:]
-            if content.endswith('```'):
-                content = content[:-3]
-            content = content.strip()
-            
-            try:
-                # 清理和验证内容
-                content = content.strip()
-                # 移除可能存在的额外引号
-                if content.startswith('"') and content.endswith('"'):
-                    content = content[1:-1]
-                # 处理转义字符
-                content = content.replace('\\"', '"').replace('\\n', '\n')
-                
-                # Debug: 打印原始内容
-                # logging.info(f"Content before JSON parsing: '{content}'")
-                
-                # 确保content不为空
-                if not content:
-                    logging.warning("Empty content received")
-                    return self._get_default_decision()
-                
-                # 解析JSON内容
-                try:
-                    result = json.loads(content)
-                    # print("result: ", result)
-                except json.JSONDecodeError as json_err:
-                    logging.error(f"JSON parsing error at position {json_err.pos}: {content[max(0, json_err.pos-20):json_err.pos+20]}")
-                    raise
-                
-                # 验证结果结构
-                if not isinstance(result, dict) :
-                    logging.warning("Invalid response structure")
-                    return self._get_default_decision()
-                # # 检查 robots_decisions 是否存在且为列表
-                # if 'robots_decisions' not in result or not isinstance(result['robots_decisions'], list):
-                #     logging.warning("Invalid response structure: 'robots_decisions' is missing or not a list")
-                #     return self._get_default_decision()
-
-                # # 遍历 robots_decisions，检查每个机器人的 recommended_action
-                # for decision in result['robots_decisions']:
-                #     if not isinstance(decision, dict) or 'recommended_action' not in decision:
-                #         logging.warning("Invalid response structure: 'recommended_action' is missing in a robot decision")
-                #         return self._get_default_decision()
-
-                #     # 获取 recommended_action
-                #     rec_action = decision['recommended_action']
-                #     if not isinstance(rec_action, dict) or 'vx' not in rec_action or 'vy' not in rec_action:
-                #         logging.warning("Invalid recommended_action structure")
-                #         return self._get_default_decision()
-
-                #     # 确保数值类型正确
-                #     try:
-                #         vx = float(rec_action['vx'])
-                #         vy = float(rec_action['vy'])
-                #         decision['recommended_action']['vx'] = vx
-                #         decision['recommended_action']['vy'] = vy
-                #     except (ValueError, TypeError):
-                #         logging.warning("Invalid velocity values")
-                #         return self._get_default_decision()
-                                
-                # 更新最后一次有效决策
-                self.last_valid_decision = result
-                
-                # 缓存结果
-                if not is_training or self.training_calls < 50:
-                    self.cache[state_desc] = result
-                    if len(self.cache) > 500:
-                        self.cache.pop(next(iter(self.cache)))
+                    payload = {
+                        "model": "google/gemini-2.0-flash-thinking-exp:free", #"deepseek/deepseek-r1:free",
+                        "messages": [
+                            {"role": "system", "content": "You are an intelligent multi-robots navigation system. Please provide responses in valid JSON format!"},
+                            {"role": "user", "content": prompt}
+                        ],
+                        "temperature": 0.3,
+                        "max_tokens": 8000
+                    }
+                    
+                    # 直接使用requests代替OpenAI客户端
+                    response = requests.post(
+                        "https://openrouter.ai/api/v1/chat/completions",
+                        # "https://openrouter.ai/api/chat/completions",
+                        headers=headers,
+                        json=payload
+                    )
+                    response_json = response.json()
+                    # print("response_json: ", response_json)
+                    if response.status_code != 200:
+                        logging.warning(f"API request failed with status code {response.status_code}: {response.text}")
+                        return self._get_default_decision()
+                    # print("response: ", response.status_code)
+                    # 检查api速率限制
+                    if response.status_code == 200 and "error" in response_json:
+                        error_code = response_json.get("error", {}).get("code")
+                        if error_code == 429:
+                            print(f"API rate limit reached! Response: {response_json}")
+                            self.current_key_index = (self.current_key_index + 1) % len(self.api_keys)
+                            headers["Authorization"] = f"Bearer {self.api_keys[self.current_key_index]}"
+                            print(f"Switched to API key index: {self.current_key_index}")
+                        # if self.current_key_index == 0:
+                        #     logging.error("All API keys have reached their usage limits.")
+                        #     return self._get_default_decision(state_desc)
                         
-                if is_training:
-                    self.training_calls += 1
+                    content_type = response.headers.get("Content-Type", "")
+                    if not content_type.startswith("application/json"):
+                        logging.warning(f"Unexpected Content-Type: {content_type}")
+                    #     return self._get_default_decision()
+                    # print("response_json: ", response.json())
+                    #logging.info(f"response_text: {response.text}")
+                    # 解析JSON响应
+                    try:
+                        
+                        #print("response_json: ", response_json)
+                        content = response_json.get("choices", [{}])[0].get("message", {}).get("content", "")
+                    except json.decoder.JSONDecodeError as e:
+                        print("JSONDecodeError:", str(e))
+                    logging.info(f"LLM response received: {content[:100]}...")
                     
-                return result
+                    # 计算token使用量
+                    tokens_used = response_json.get("usage", {}).get("total_tokens", 50)  # 默认值为估计值
+                    self.total_tokens_used += tokens_used
+                    logging.info(f"Tokens used: {tokens_used}, Total: {self.total_tokens_used}")
+                    
+                except Exception as api_error:
+                    logging.warning(f"API call error: {str(api_error)}")
+                    return self._get_default_decision()
                 
-            except json.JSONDecodeError as e:
-                logging.warning(f"Failed to parse LLM response: {str(e)}")
+                # 清理响应内容
+                content = content.strip()
+                if content.startswith('```json'):
+                    content = content[7:]
+                if content.endswith('```'):
+                    content = content[:-3]
+                content = content.strip()
+                
+                try:
+                    # 清理和验证内容
+                    content = content.strip()
+                    # 移除可能存在的额外引号
+                    if content.startswith('"') and content.endswith('"'):
+                        content = content[1:-1]
+                    # 处理转义字符
+                    content = content.replace('\\"', '"').replace('\\n', '\n')
+                    
+                    # Debug: 打印原始内容
+                    # logging.info(f"Content before JSON parsing: '{content}'")
+                    
+                    # 确保content不为空
+                    if not content:
+                        logging.warning("Empty content received")
+                        return self._get_default_decision()
+                    
+                    # 解析JSON内容
+                    try:
+                        result = json.loads(content)
+                        # print("result: ", result)
+                    except json.JSONDecodeError as json_err:
+                        logging.error(f"JSON parsing error at position {json_err.pos}: {content[max(0, json_err.pos-20):json_err.pos+20]}")
+                        raise
+                    
+                    # 验证结果结构
+                    if not isinstance(result, dict) :
+                        logging.warning("Invalid response structure")
+                        return self._get_default_decision()
+                    # # 检查 robots_decisions 是否存在且为列表
+                    # if 'robots_decisions' not in result or not isinstance(result['robots_decisions'], list):
+                    #     logging.warning("Invalid response structure: 'robots_decisions' is missing or not a list")
+                    #     return self._get_default_decision()
+
+                    # # 遍历 robots_decisions，检查每个机器人的 recommended_action
+                    # for decision in result['robots_decisions']:
+                    #     if not isinstance(decision, dict) or 'recommended_action' not in decision:
+                    #         logging.warning("Invalid response structure: 'recommended_action' is missing in a robot decision")
+                    #         return self._get_default_decision()
+
+                    #     # 获取 recommended_action
+                    #     rec_action = decision['recommended_action']
+                    #     if not isinstance(rec_action, dict) or 'vx' not in rec_action or 'vy' not in rec_action:
+                    #         logging.warning("Invalid recommended_action structure")
+                    #         return self._get_default_decision()
+
+                    #     # 确保数值类型正确
+                    #     try:
+                    #         vx = float(rec_action['vx'])
+                    #         vy = float(rec_action['vy'])
+                    #         decision['recommended_action']['vx'] = vx
+                    #         decision['recommended_action']['vy'] = vy
+                    #     except (ValueError, TypeError):
+                    #         logging.warning("Invalid velocity values")
+                    #         return self._get_default_decision()
+                                    
+                    # 更新最后一次有效决策
+                    self.last_valid_decision = result
+                    
+                    # 缓存结果
+                    if not is_training or self.training_calls < 50:
+                        self.cache[state_desc] = result
+                        if len(self.cache) > 500:
+                            self.cache.pop(next(iter(self.cache)))
+                            
+                    if is_training:
+                        self.training_calls += 1
+                        
+                    return result
+                    
+                except json.JSONDecodeError as e:
+                    logging.warning(f"Failed to parse LLM response: {str(e)}")
+                    return self._get_default_decision()
+                
+            except Exception as e:
+                logging.warning(f"LLM API call failed: {str(e)}")
                 return self._get_default_decision()
-            
-        except Exception as e:
-            logging.warning(f"LLM API call failed: {str(e)}")
-            return self._get_default_decision()
 
     def _format_prompt(self, state_desc: str) -> str:
         return f"""
     Given the following multi-robot navigation state:
     {state_desc}
 
-    Please analyze the situation and provide navigation decisions for ALL robots(include current robot(id:0) and other robots(id:1,2,...)) in the system. Each robot needs its own decision.
+    Please analyze the situation and provide navigation decisions for ALL robots(include current robot and other robots) in the system. Each robot needs its own decision.
+    The robots' speed cannot exceed 1, and you need to predict the next position of other robots to avoid collision.
+    You can let humans reach the goals first while robots staying still or moving around(this is phase 1), and after the humans reach the goal, consider the robots' navigation and potential collision(this is phase 2).
+    In phase 2(humans at goal), You need to reduce the speed and take detour strategies when necessary in order to make the robots pass through the central crossing area in a certain order without collision. 
     Your response must be in the following JSON format:
     {{
         "risk_assessment": <overall_risk_level_1_to_10>,

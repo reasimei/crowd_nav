@@ -322,11 +322,12 @@ class CrowdSim(gym.Env):
                 position_in_group = i % 8  # Position within the group (0-7)
                 radius = self.circle_radius - group_num * 2  # Decrease radius for each group
                 
+                offset = 3.5
                 # Determine position based on position in group
                 if position_in_group < 2:  # Bottom robots (0,1)
                     px = 2 * (position_in_group - 0.5)  # -1, 1
                     py = -radius
-                    gx = px
+                    gx = px - offset
                     # 稍微减少目标点距离，防止到不了
                     gy = radius - 0.3
                     theta = np.pi / 2  # Moving upward
@@ -336,13 +337,13 @@ class CrowdSim(gym.Env):
                     py = 2 * (position_in_group - 2.5)  # -1, 1
                     # 稍微减少目标点距离，防止到不了
                     gx = -radius + 0.3
-                    gy = py
+                    gy = py - offset
                     theta = np.pi  # Moving leftward
                 
                 elif position_in_group < 6:  # Top robots (4,5)
                     px = 2 * (position_in_group - 4.5)  # -1, 1
                     py = radius
-                    gx = px
+                    gx = px + offset
                     # 稍微增加目标点距离，防止过头
                     gy = -radius + 0.2
                     theta = -np.pi / 2  # Moving downward
@@ -352,7 +353,7 @@ class CrowdSim(gym.Env):
                     py = 2 * (position_in_group - 6.5)  # -1, 1
                     # 稍微增加目标点距离，防止过头
                     gx = radius - 0.2
-                    gy = py
+                    gy = py + offset
                     theta = 0  # Moving rightward
                 
                 robot.set(px, py, gx, gy, 0, 0, theta)
@@ -1229,7 +1230,7 @@ class CrowdSim(gym.Env):
             
             if not os.path.exists('./result/hllmsarl'):
                 os.makedirs('./result/hllmsarl')
-            plt.savefig("./result/hllmsarl/test_039.png", dpi=300)
+            plt.savefig("./result/hllmsarl/test_038_2.png", dpi=300)
 
             
         elif mode == 'video':

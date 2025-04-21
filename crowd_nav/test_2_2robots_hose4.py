@@ -365,7 +365,7 @@ def main():
         # Save the animation
         try:
             if args.traj:
-                anim.save('./result/hllmsarl/test_039.gif', writer='pillow', fps=10)
+                anim.save('./result/hllmsarl/test_038_2.gif', writer='pillow', fps=10)
                 logging.info('Trajectory GIF saved as test_001.gif')
             else:
                 # 检查 ffmpeg 是否可用

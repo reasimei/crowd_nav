@@ -84,7 +84,15 @@ class Explorer(object):
             actions = []
             rewards = []
             ep_reward = 0  # 累计奖励记录变量
-            
+            robot_num = len(self.robots)
+            is_lead = [None]*robot_num
+            lead = [None]*robot_num
+            follow = [None]*robot_num
+
+            for i in range(robot_num):
+                partner = self.robots[i].get_hose_partner()
+                if partner is not None:
+                    lead[i],follow[i],is_lead[i] = self.robots[i].identify_lead_follow_roles()
             # 单个回合循环
             while not done:
                 # 人类避障/机器人协调训练阶段切换
@@ -104,6 +112,7 @@ class Explorer(object):
                 # 清空动作
                 action = []
                 flag = 0
+                i = 0
                 # 每个机器人计算动作
                 for robot in self.robots:
                     try:
@@ -112,7 +121,8 @@ class Explorer(object):
                             if self.training_phase == 'human_avoidance':
                                 robot_action = robot.act_avoid_humans(ob)
                             elif self.training_phase == 'robot_avoidance':
-                                robot_action,flag = robot.act_avoid_robots(ob,flag)
+                                robot_action,flag = robot.act_avoid_robots(ob,flag,lead[i],is_lead[i])
+                                i+=1
                             else:
                                 robot_action = robot.act(ob)
                         else:

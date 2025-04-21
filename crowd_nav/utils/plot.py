@@ -20,7 +20,7 @@ def main():
     parser.add_argument('log_files', type=str, nargs='+')
     parser.add_argument('--plot_reward', default=True, action='store_true')
     parser.add_argument('--plot_train', default=True, action='store_true')
-    parser.add_argument('--window_size', type=int, default=10)
+    parser.add_argument('--window_size', type=int, default=4)
     args = parser.parse_args()
 
     # Define the names of the models you want to plot
